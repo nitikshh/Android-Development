@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <title>Learn Data Science</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        header h1{
+             font-size:30px;
+        }
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+            color:white;
+            text-align:center;
+            text-shadow: 2px 2px 8px black;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        pre{
+            padding:0px;
+
+        }
+        .container h4{
+            padding:5px;
+            width:100%;
+        }
+        .p{
+            background:#FEFCF3;
+            padding:0px;
+            font-size:13px;
+            
+        }
+        .p span{
+            background-color:#F5EBE0;
+            font-size:13px;
+        }
+        .chart {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width:100%;
+            overflow:scroll;
+            margin-bottom: 20px;
+        }
+        redtag{
+            color:green;
+            margin-top:1px;
+            font-size:13px;
+            font-family: 'Kanit', sans-serif;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100vh;
+            background-color: black;
+            transition: width 0.3s ease;
+            color:black;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: "\2630"; /* Hamburger icon */
+        }
+
+        .icon.open::before {
+            content: "\2716"; /* Close icon */
+        }
+
+        .icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color:white;
+            cursor: pointer;
+        }
+
+        #navbarList {
+            margin-top: 50px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #navbarList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #navbarList li a {
+            text-decoration: none;
+            color:white;
+        }
+        #code {
+        font-size: 12px;
+        }
+        
+@media(min-width:700px){
+     .p{
+          font-size:6px;
+     }
+     redtag{
+          font-size:7px;
+          color:red;
+     }
+     h4{
+          font-size:8px;
+     }
+     p span{
+          font-size:8px;
+     }
+}
+#icon-container {
+  position: fixed;
+  left: 88%;
+  top: 90px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#whatsapp-icon {
+  font-size: 32px;
+  cursor: pointer;
+  color:black;
+  
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+</head>
+<body>
+<div class="navbar" id="navbar">
+    <!-- <div class="icon" onclick="toggleNavbar()"></div> -->
+<div id="icon-container">
+  <a href="https://wa.me/whatsappphonenumber" target="_blank" id="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<script>
+const whatsappIcon = document.getElementById('whatsapp-icon');
+const whatsappPhoneNumber = '7668703721'; // Replace with your phone number
+
+whatsappIcon.href = `https://wa.me/${whatsappPhoneNumber}`;
+     
+</script>
+    <ul id="navbarList">
+        <li><a href="index.html">Chapter 0 - Starting with small project</a></li>
+        <li><a href="ch_1_throey.html">Chapter 1 - The Theory</a></li>
+        <li><a href="ML_ch2.html">Chapter 2 - Machine Learning - I</a></li>
+        <li><a href="datacleaning_ch3.html">Chapter 3 - Data Cleaning</a></li>
+        <li><a href="dataVis_ch4.html">Chapter 4 - Data Visualization</a></li>
+        <li><a href="#">Chapter 6 - Conclusion</a></li>
+        <li><a href="#">Chapter 7 - Appendix A</a></li>
+        <li><a href="#">Chapter 8 - Appendix B</a></li>
+        <li><a href="#">Chapter 9 - Glossary</a></li>
+        <li><a href="#">Chapter 10 - Index</a></li>
+    </ul>
+</div>
+
+<script>
+    function toggleNavbar() {
+        var navbar = document.getElementById('navbar');
+        var icon = document.querySelector('.icon');
+        
+        if (navbar.style.width === '300px') {
+            navbar.style.width = '0';
+            icon.classList.remove('open');
+        } else {
+            navbar.style.width = '300px';
+            icon.classList.add('open');
+        }
+    }
+</script>
+
+<header>
+    <h1>Android Development</h1>
+</header>
+<main>
+    <section>
+        <h2>App</h2>
+
+<div class="container">
+			     <h4>
+What is Android
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText()"><code class="language-python" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+Android is an operating system primarily designed for mobile devices such as smartphones and tablets. It was developed by Google and is based on the Linux kernel and open-source software. Android provides a platform for developers to create applications and services that can run on a wide range of devices.
+<br><br>
+The Android operating system offers a user-friendly interface and supports various features, including web browsing, email communication, social media integration, multimedia playback, gaming, and access to a vast array of applications through the Google Play Store.
+<br><br>
+Android is known for its customization options, allowing users to personalize their devices with different launchers, widgets, and themes. It also supports multitasking, enabling users to switch between applications and perform multiple tasks simultaneously.
+<br><br>
+Android has undergone several major version updates since its initial release in 2008. Each version introduced new features, improvements in performance, security enhancements, and compatibility with the latest hardware technologies. Some notable Android versions include Cupcake, Donut, Eclair, Gingerbread, Ice Cream Sandwich, Jelly Bean, KitKat, Lollipop, Marshmallow, Nougat, Oreo, Pie, and the latest version as of my knowledge cutoff in September 2021, which is Android 11.
+     </p>
+</div>
+<div class="container">
+			     <h4>
+Versions of Android
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText(this)"><code class="language-python" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+The major versions of the Android operating system up:
+<br><br>
+1. `Android 1.0 (initial release):` Released in September 2008, Android 1.0 provided the basic functionalities of an Android device, such as a web browser, email support, and integration with Google services.
+<br><br>
+2. `Android 1.5 Cupcake:` Released in April 2009, Cupcake introduced several new features like an on-screen keyboard, video recording, and support for third-party widgets.
+<br><br>
+3. `Android 1.6 Donut:` Released in September 2009, Donut brought improvements to the user interface, including a redesigned camera application, support for CDMA networks, and enhanced search functionality.
+<br><br>
+4. `Android 2.0/2.1 Eclair:` Released in October 2009, Eclair introduced features like multiple account support, improved camera functionalities, live wallpapers, and support for HTML5.
+<br><br>
+5. `Android 2.2 Froyo:` Released in May 2010, Froyo brought significant performance improvements, including a JIT compiler for faster app execution, support for portable hotspot functionality, and the ability to install apps on external storage.
+<br><br>
+6. `Android 2.3 Gingerbread:` Released in December 2010, Gingerbread focused on refining the user interface, improving performance, and adding support for new sensors like gyroscope and barometer.
+<br><br>
+7. `Android 3.0/3.1/3.2 Honeycomb:` Released in February 2011, Honeycomb was specifically designed for tablets, offering a redesigned interface, optimized multitasking, and support for larger screen sizes.
+<br><br>
+8. `Android 4.0 Ice Cream Sandwich:` Released in October 2011, Ice Cream Sandwich aimed to unify the user experience across smartphones and tablets. It introduced a new system font, resizable widgets, face unlock, and improved camera app.
+<br><br>
+9. `Android 4.1/4.2/4.3 Jelly Bean:` Released between July 2012 and July 2013, Jelly Bean focused on performance improvements, smoother user interface, expandable notifications, and introduced features like Google Now.
+<br><br>
+10. `Android 4.4 KitKat:` Released in October 2013, KitKat aimed to optimize the Android experience for devices with lower memory specifications. It introduced a new dialer app, improved Google Now integration, and a more efficient runtime called ART.
+<br><br>
+11. `Android 5.0/5.1 Lollipop:` Released in November 2014, Lollipop brought a new design language called Material Design, improved notifications, enhanced battery performance through Project Volta, and introduced multiple user accounts on phones.
+<br><br>
+12. `Android 6.0 Marshmallow:` Released in October 2015, Marshmallow focused on improving overall stability and performance. It introduced features like granular app permissions, native support for fingerprint sensors, and Doze mode for improved battery life.
+<br><br>
+13. `Android 7.0/7.1 Nougat:` Released between August 2016 and December 2016, Nougat introduced split-screen multitasking, improved notifications with direct reply, bundled notifications, and under-the-hood optimizations.
+<br><br>
+14. `Android 8.0/8.1 Oreo:` Released between August 2017 and December 2017, Oreo brought features such as picture-in-picture mode, notification dots, adaptive icons, autofill framework, and improved battery management.
+<br><br>
+15. `Android 9 Pie:` Released in August 2018, Pie focused on intelligent features and user experience improvements. It introduced gesture navigation, adaptive battery and brightness, app actions, and Digital Wellbeing tools.
+<br><br>
+16. `Android 10:` Released in September 2019, Android 10 emphasized privacy and security enhancements. It
+ introduced a system-wide dark mode, improved permissions management, enhanced gesture navigation, and a focus on foldable devices.
+<br><br>
+17. `Android 11:` Released in September 2020, Android 11 focused on improving communication, device controls, and privacy. It introduced features like conversation notifications, chat bubbles, media controls in the notification shade, and one-time permissions.
+     </p>
+</div>
+<div class="container">
+			     <h4>
+How to Create A App
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText(this)"><code class="language-python" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+To create an Android app, you can follow these general steps:
+<br>
+1. `Define your app idea:` Determine the purpose and functionality of your app. Consider the target audience and the problem your app will solve or the value it will provide.
+<br><br>
+2. `Plan the app structure:` Create a rough sketch or wireframe of the app's user interface, including screens, navigation flow, and key features. This will help you visualize the app's structure.
+<br><br>
+3. `Set up the development environment:` Install the necessary tools and software. You will need Android Studio, the official integrated development environment (IDE) for Android app development. Android Studio includes the Android SDK (Software Development Kit) and all the necessary libraries.
+<br><br>
+4. `Design the user interface:` Use Android Studio's layout editor or XML to design the visual appearance and layout of your app's screens. Consider using Android's Material Design guidelines for a consistent and modern look.
+<br><br>
+5. `Write the app's code:` Use Java or Kotlin, the two official programming languages for Android app development. Android Studio provides a code editor where you can write the app's logic, implement features, and interact with the device's hardware and software.
+<br><br>
+6. `Implement app functionality:` Use the Android SDK and libraries to implement the desired features of your app. This may include working with data storage, networking, user input, media playback, and integrating APIs or services.
+<br><br>
+7. `Test the app:` Use Android Studio's built-in emulator or connect a physical Android device to test your app. Check for any bugs, glitches, or performance issues. Perform both functional and user interface testing.
+<br><br>
+8. `Refine and optimize:` Analyze user feedback and make necessary improvements to enhance the app's usability, performance, and stability. Optimize your code and resources for better efficiency.
+<br><br>
+9. `Publish your app:` Sign up for a Google Play Developer account and follow the submission process outlined by Google. Prepare app assets, descriptions, screenshots, and ensure your app complies with Google Play policies. Once approved, your app will be available for users to download from the Google Play Store.
+<br><br>
+10. `Maintain and update your app:` Continuously monitor user feedback, address bugs and crashes, and release updates to introduce new features, improvements, and compatibility with newer Android versions.
+<br><br>
+It's important to note that developing a fully functional and polished Android app requires time, effort, and a solid understanding of programming concepts. Learning resources like official Android documentation, online tutorials, and community forums can be helpful for beginners.
+     </p>
+</div>
+<div class="container">
+			     <h4>
+What are Android IDE
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText(this)"><code class="language-python" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+Android IDE (`Integrated Development Environment`) is a software tool that provides a development environment for creating Android applications. It offers various features to assist developers in designing, coding, testing, and debugging Android apps. The most widely used Android IDE is:
+<br><br>
+`Android Studio:` Android Studio is the official IDE for Android app development. It is based on IntelliJ IDEA and provides a comprehensive set of tools and features specifically tailored for Android development. Android Studio offers a user-friendly interface, a code editor with intelligent code completion and syntax highlighting, visual layout editors, built-in emulators for testing apps, and seamless integration with the Android SDK and libraries. It supports both Java and Kotlin programming languages and offers extensive debugging and profiling capabilities.
+<br><br>
+Other than Android Studio, there are a few alternative IDEs that can be used for Android development, although they may not have the same level of official support and integration:
+<br><br>
+1. `Eclipse with Android Development Tools (ADT):` Eclipse was a popular IDE for Android development before Android Studio became the official choice. ADT was an Eclipse plugin that provided tools and features specific to Android development. However, Google has stopped official support for ADT, and it is no longer recommended for new projects.
+<br><br>
+2. `Visual Studio with Xamarin:` Visual Studio is a popular IDE for developing various types of applications, including Android apps. Xamarin is a Microsoft-owned framework that allows developers to create cross-platform apps using C# and .NET. With Visual Studio and Xamarin, developers can write Android apps in C# and share code across multiple platforms.
+<br><br>
+It's worth noting that Android Studio is the recommended IDE for Android app development as it is regularly updated, supported by Google, and offers the best integration with the Android platform and tools.
+     </p>
+</div>
+<div class="container">
+			     <h4>
+Is Play Store is good for Uploading apps
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText(this)"><code class="language-python" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+Yes, the Google Play Store is one of the most popular and widely used platforms for uploading and distributing Android apps. It provides a vast user base and a trusted marketplace for Android users to discover and download apps.
+<br><br>
+Here are some reasons why the Google Play Store is considered good for uploading apps:
+<br>
+1. `Large User Base:` The Google Play Store has a massive user base, with millions of active Android device users worldwide. Publishing your app on the Play Store gives you access to this extensive audience, increasing the potential reach and visibility of your app.
+<br><br>
+2. `Trusted Platform:` The Play Store is the official app store for Android, operated by Google. Android users trust the Play Store as a reliable source for downloading apps, ensuring that your app is hosted on a reputable platform.
+<br><br>
+3. `Discoverability:` The Play Store provides various features and mechanisms for app discovery, including app categories, search functionality, recommendations, and user reviews. This helps users find your app based on their interests and preferences.
+<br><br>
+4. `Monetization Options:` The Play Store offers several monetization options for app developers, such as in-app purchases, subscriptions, and displaying ads within your app. These options allow you to generate revenue from your app.
+<br><br>
+5. `Developer Tools and Support:` Google provides a range of developer tools, documentation, and resources to help you optimize your app for the Play Store. You can access analytics, crash reporting, and user feedback to improve your app's performance and user experience.
+<br><br>
+6. `Update Distribution:` The Play Store makes it easy to distribute updates to your app. Whenever you release a new version, users with your app installed will receive notifications and can easily update their app to the latest version.
+<br><br>
+7. `Security Measures:` The Play Store implements various security measures to protect users from potentially harmful apps. It includes a rigorous app review process, scanning for malware, and providing user feedback on app quality and safety.
+<br><br>
+While the Google Play Store offers significant advantages, it's essential to adhere to the platform's policies and guidelines to ensure your app meets the required standards and avoids any potential violations.
+     </p>
+</div>
+<!-- <div class="container">
+			     <h4>
+
+			     </h4>
+				<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-python" id="code"></code></pre>
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+
+     </p>
+</div>
+ -->
+			
+			
+			
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 Android Development Guide</p>
+	</footer>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+	<script>
+		Prism.highlightAll();
+	</script>
+	<script>
+        function copyText(element) {
+            var text = element.textContent;
+
+            navigator.clipboard.writeText(text)
+                .then(function() {
+                    alert("Text copied to clipboard!");
+                })
+                .catch(function(error) {
+                    console.error("Failed to copy text: ", error);
+                });
+        }
+    </script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /`([^`]+)`/g;
+    var styledText = text.replace(regex, '<redtag class="backtick-text">$1</redtag>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+
+</body>
+</html>
