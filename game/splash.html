@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Width Image with Seekbar Animation</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .container {
+      position: relative;
+      height: 100%;
+    }
+    
+    .image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+    .seekbar {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      width: 80%;
+      margin: 0 auto;
+      height: 5px;
+      background-color: #ccc;
+    }
+    
+    .progressbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #ff0000;
+      transition: width 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="image" src="image.jpeg" alt="Full Width Image">
+    <div class="seekbar">
+      <div class="progressbar"></div>
+    </div>
+  </div>
+
+  <script>
+    // Update progress bar width over time
+    function updateProgressBar() {
+      const progressbar = document.querySelector('.progressbar');
+      let width = 0;
+      const interval = setInterval(() => {
+        if (width >= 100) {
+          clearInterval(interval);
+        } else {
+          width++;
+          progressbar.style.width = width + '%';
+        }
+      }, 50);
+    }
+
+    updateProgressBar();
+  </script>
+</body>
+</html>
