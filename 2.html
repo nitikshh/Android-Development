@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <title>Learn Data Science</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        header h1{
+             font-size:30px;
+        }
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+            color:white;
+            text-align:center;
+            text-shadow: 2px 2px 8px black;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        pre{
+            padding:0px;
+
+        }
+        .container h4{
+            padding:5px;
+            width:100%;
+        }
+        .p{
+            background:#FEFCF3;
+            padding:0px;
+            font-size:13px;
+            
+        }
+        .p span{
+            background-color:#F5EBE0;
+            font-size:13px;
+        }
+        .chart {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width:100%;
+            overflow:scroll;
+            margin-bottom: 20px;
+        }
+        redtag{
+            color:green;
+            margin-top:1px;
+            font-size:13px;
+            font-family: 'Kanit', sans-serif;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100vh;
+            background-color: black;
+            transition: width 0.3s ease;
+            color:black;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: "\2630"; /* Hamburger icon */
+        }
+
+        .icon.open::before {
+            content: "\2716"; /* Close icon */
+        }
+
+        .icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color:white;
+            cursor: pointer;
+        }
+
+        #navbarList {
+            margin-top: 50px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #navbarList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #navbarList li a {
+            text-decoration: none;
+            color:white;
+        }
+        #code {
+        font-size: 12px;
+        }
+        
+@media(min-width:700px){
+     .p{
+          font-size:6px;
+     }
+     redtag{
+          font-size:7px;
+          color:red;
+     }
+     h4{
+          font-size:8px;
+     }
+     p span{
+          font-size:8px;
+     }
+}
+#icon-container {
+  position: fixed;
+  left: 88%;
+  top: 90px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#whatsapp-icon {
+  font-size: 32px;
+  cursor: pointer;
+  color:black;
+  
+}
+@media screen and (max-width: 600px) {
+  .highlighted-text {
+    font-size: 14px !important;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .highlighted-text {
+    font-size: 8px !important;
+    color: green;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .highlighted-text {
+    font-size: 8px !important;
+    color: orange;
+  }
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+</head>
+<body>
+<div class="navbar" id="navbar">
+    <!-- <div class="icon" onclick="toggleNavbar()"></div> -->
+<!-- <div id="icon-container">
+  <a href="https://wa.me/whatsappphonenumber" target="_blank" id="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
+</div> -->
+<!-- <script>
+const whatsappIcon = document.getElementById('whatsapp-icon');
+const whatsappPhoneNumber = '7668703721'; // Replace with your phone number
+
+whatsappIcon.href = `https://wa.me/${whatsappPhoneNumber}`;
+     
+</script> -->
+    <ul id="navbarList">
+        <li><a href="index.html">Chapter 0 - Starting with small project</a></li>
+        <li><a href="ch_1_throey.html">Chapter 1 - The Theory</a></li>
+        <li><a href="ML_ch2.html">Chapter 2 - Machine Learning - I</a></li>
+        <li><a href="datacleaning_ch3.html">Chapter 3 - Data Cleaning</a></li>
+        <li><a href="dataVis_ch4.html">Chapter 4 - Data Visualization</a></li>
+        <li><a href="#">Chapter 6 - Conclusion</a></li>
+        <li><a href="#">Chapter 7 - Appendix A</a></li>
+        <li><a href="#">Chapter 8 - Appendix B</a></li>
+        <li><a href="#">Chapter 9 - Glossary</a></li>
+        <li><a href="#">Chapter 10 - Index</a></li>
+    </ul>
+</div>
+
+<script>
+    function toggleNavbar() {
+        var navbar = document.getElementById('navbar');
+        var icon = document.querySelector('.icon');
+        
+        if (navbar.style.width === '300px') {
+            navbar.style.width = '0';
+            icon.classList.remove('open');
+        } else {
+            navbar.style.width = '300px';
+            icon.classList.add('open');
+        }
+    }
+</script>
+
+<header>
+    <h1>Android Development</h1>
+</header>
+<main>
+    <section>
+        <h2>Introduction</h2>
+
+
+<div class="container">
+			     <h4>
+What is JAVA
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText()"><code class="language-python" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+Java is a programming language that is widely used in Android app development. It was initially created by Sun Microsystems and later acquired by Oracle Corporation. Java is an object-oriented language that is known for its simplicity, portability, and strong community support.
+<br><br>
+In the context of Android development, Java serves as the primary programming language for building Android applications. It is used to write the logic and functionality of the app, handle user interactions, and manipulate data.
+<br><br>
+Here are some key aspects of Java in Android development:
+<br><br>
+1. Syntax and Structure: Java follows a syntax similar to many other programming languages, making it relatively easy for developers to understand and write code. It uses classes and objects to structure code and supports concepts like inheritance, polymorphism, and encapsulation.
+<br><br>
+2. Java Development Kit (JDK): To develop Android apps in Java, developers need to install the Java Development Kit, which includes the necessary tools and libraries for writing, compiling, and running Java code.
+<br><br>
+3. Android Software Development Kit (SDK): Along with the JDK, developers also utilize the Android SDK, which provides the necessary APIs and tools specific to Android app development. The SDK allows developers to interact with device hardware, access system services, and create rich user interfaces.
+<br><br>
+4. Android Runtime (ART): Android uses the Android Runtime (ART), which is a virtual machine that executes Java bytecode. The Java code written for Android is compiled into bytecode, which is then executed by ART on the Android device.
+<br><br>
+5. Development Environment: Android Studio, the official integrated development environment (IDE) for Android app development, provides comprehensive support for Java. It includes features like code completion, debugging tools, and an emulator to test and run Android applications.
+<br><br>
+While Java has been the traditional language for Android development, it's worth noting that Kotlin has gained popularity as an alternative language for Android development. Kotlin is a modern programming language that is fully interoperable with Java, and it offers several advantages such as concise syntax, null safety, and enhanced productivity. However, Java remains a widely used and well-supported language in the Android development ecosystem.
+     </p>
+</div>
+<div class="container">
+			     <h4>
+Basic code of JAVA
+			     </h4>
+				<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-java" id="code">public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+The basic code structure in Java consists of classes, methods, and statements. Here's an example of a simple Java program:
+<br>
+Let's break down the code:
+<br><br>
+- The program starts with the declaration of a class named `HelloWorld`. In Java, every program is built around classes.
+<br><br>
+- Inside the class, there is a `main` method. This method is the entry point of the program, and it serves as the starting point for the execution.
+<br><br>
+- The `main` method has a parameter `String[] args`, which allows you to pass command-line arguments to the program. In this example, we are not using any command-line arguments.
+<br><br>
+- Within the `main` method, there is a single statement: `System.out.println("Hello, World!");`. This statement prints the text "Hello, World!" to the console. The `System.out.println` method is used to output text to the standard output.
+<br><br>
+- The `public` keyword before the class and method indicates that they are accessible from other classes.
+<br><br>
+- The `static` keyword in the `main` method means that it can be called without creating an instance of the class.
+<br><br>
+- The program ends after executing the `main` method.
+<br><br>
+When you run this program, it will output "Hello, World!" to the console. This is a common introductory program in many programming languages, often used to demonstrate the basic syntax and structure.
+     </p>
+</div>
+<div class="container">
+    <h4>What is XML</h4>
+    <div class="chart" id="chart1">
+        <pre onclick="copyText(this)"><code class="language-xml" id="code">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"&gt;
+
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello, World!"
+        android:textSize="24sp" /&gt;
+
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click Me" /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+    </div>
+    <p class="p">
+        <span>Explanation</span>:
+        XML (eXtensible Markup Language) is a markup language commonly used in Android development for designing
+        layouts and defining the structure and appearance of user interfaces. It is a human-readable and
+        platform-independent language that provides a way to describe the hierarchical structure of elements and
+        their attributes.
+        <br><br>
+        In Android development, XML is used extensively for creating UI layouts using the XML-based layout files.
+        These layout files define the visual structure of the user interface, including views, view groups, and
+        their properties. Here's an example of basic XML code for an Android layout:
+        <br><br>
+        Let's break down the code:
+        <br><br>
+        - The XML declaration <code>&lt;?xml version="1.0" encoding="utf-8"?&gt;</code> specifies the XML version and
+        encoding used in the file.
+        <br><br>
+        - The root element of the layout is <code>&lt;LinearLayout&gt;</code>, which represents a vertical linear layout.
+        It serves as a container for other views and defines the orientation of its child views.
+        <br><br>
+        - The <code>xmlns:android</code> attribute in the root element defines the XML namespace for Android-specific
+        attributes.
+        <br><br>
+        - Inside the <code>&lt;LinearLayout&gt;</code>, there are two child views:
+        <br><br>
+        &nbsp;&nbsp;- <code>&lt;TextView&gt;</code> represents a text view. It has an <code>android:id</code> attribute
+        to uniquely identify it. The <code>android:layout_width</code> and <code>android:layout_height</code>
+        attributes specify the dimensions of the text view. The <code>android:text</code> attribute sets the text
+        displayed in the view, and <code>android:textSize</code> sets the text size.
+        <br><br>
+        &nbsp;&nbsp;- <code>&lt;Button&gt;</code> represents a button. It also has an <code>android:id</code> attribute.
+        The <code>android:layout_width</code> and <code>android:layout_height</code> attributes specify the
+        dimensions of the button, and <code>android:text</code> sets the text displayed on the button.
+        <br><br>
+        - The closing <code>&lt;/LinearLayout&gt;</code> tag ends the definition of the root layout.
+        <br><br>
+        When you use this XML layout file in an Android activity, it will create a user interface with a vertical
+        linear layout containing a text view displaying "Hello, World!" and a button labeled "Click Me". This XML
+        code defines the structure and appearance of the UI elements, and the attributes specify their properties.
+        <br><br>
+        Overall, XML in Android development plays a crucial role in defining the user interface and organizing the
+        layout hierarchy. It provides a flexible and structured approach to designing UIs and separates the
+        presentation logic from the application code.
+    </p>
+</div>
+
+<div class="container">
+			     <h4>
+Why we Use XML 
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText(this)"><code class="language-java" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+XML is widely used in Android development for several reasons:
+<br><br>
+1. Declarative UI Design: XML allows developers to define the user interface in a declarative manner. Instead of writing code to create UI elements programmatically, XML provides a structured and intuitive way to describe the layout, views, and their properties. This separation of UI design from the code makes it easier to maintain and update the UI.
+<br><br>
+2. Separation of Concerns: XML helps in separating the presentation logic from the application logic. By defining the UI in XML layout files, developers can focus on writing the business logic in code files (such as Java or Kotlin classes) separately. This separation enhances code readability, maintainability, and reusability.
+<br><br>
+3. Ease of Visualization and Editing: XML is a human-readable format, making it easier for developers to visualize and understand the UI structure. XML tools and editors provide syntax highlighting, auto-completion, and error checking, which helps developers in efficiently editing and debugging the XML layout files.
+<br><br>
+4. Adaptability and Flexibility: XML allows for easy modification and customization of the UI. Developers can easily change the layout, views, and their properties by editing the XML file without modifying the underlying code. This flexibility makes it convenient to experiment with different UI designs and adapt the user interface to different screen sizes or device orientations.
+<br><br>
+5. Localization Support: Android supports localization by allowing developers to provide multiple versions of XML layout files for different languages and regions. This enables the application to display UI elements in the appropriate language based on the user's device settings. XML provides a convenient way to manage and organize these localized resources.
+<br><br>
+6. Integration with Resources and Styling: XML layout files in Android can reference resources such as strings, colors, dimensions, and styles. This allows for centralized management and reuse of resources across different layout files, resulting in consistent styling and easier maintenance.
+<br><br>
+Overall, XML in Android development simplifies UI design, improves code organization, enhances maintainability, and provides flexibility in customizing and adapting the user interface. It is a key component in the Android development ecosystem and an integral part of creating visually appealing and user-friendly applications.
+     </p>
+</div>
+<div class="container">
+    <h4>Basic Code Of Java and XML</h4>
+    <div class="chart" id="chart1">
+        <pre onclick="copyText(this)"><code class="language-java" id="code">// Java Code ->
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+// Xml Code ->
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity"&gt;
+
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello, XML and Java!"
+        android:textSize="24sp" /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+    </div>
+    <p class="p">
+        <span>Explanation</span>:
+        In this example, the Java code (MainActivity.java) sets the content view of the activity to the XML layout file
+        (activity_main.xml) using the <code>setContentView()</code> method. The XML layout file defines a LinearLayout
+        as the root view, which contains a TextView that displays the text "Hello, XML and Java!".
+        <br><br>
+        Note: This example assumes that you are using the legacy <code>AppCompatActivity</code> from the support
+        library. If you are using the newer <code>androidx.appcompat.app.AppCompatActivity</code>, make sure to update the
+        import statements accordingly.
+        <br><br>
+        Remember to include the necessary Android dependencies and resource files (such as the AndroidManifest.xml) for
+        a complete Android application.
+    </p>
+</div>
+
+<div class="container">
+			     <h4>
+Structure Of Files In Android Development
+			     </h4>
+				<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-java" id="code">app/
+├── build/
+│   └── ... (Auto-generated build files)
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── myapp/
+│   │   │               └── MainActivity.java
+│   │   ├── res/
+│   │   │   ├── drawable/
+│   │   │   ├── layout/
+│   │   │   ├── mipmap/
+│   │   │   └── values/
+│   │   │       ├── colors.xml
+│   │   │       ├── strings.xml
+│   │   │       └── styles.xml
+│   │   └── AndroidManifest.xml
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── myapp/
+│                       └── ExampleUnitTest.java
+└── build.gradle
+</code></pre>
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+The file structure of an Android development project typically follows a specific convention. Here is a simplified representation of the common file structure in an Android project:
+<br>
+Let's go through the structure:
+<br><br>
+- `app/` is the main module directory of the project.<br>
+- `build/` contains auto-generated build files and intermediate build outputs.<br>
+- `src/` is the main source code directory.<br>
+- `src/main/` contains the main source code and resources for the app.<br>
+- `src/main/java/` is where the Java code resides. It typically follows a package structure, such as `com.example.myapp`.<br>
+- `src/main/res/` contains various resource files used by the app, such as layouts, drawables, values, etc.<br>
+- `src/main/res/layout/` stores XML layout files that define the user interface.<br>
+- `src/main/res/values/` holds XML files for various values used in the app, such as strings, colors, and styles.<br>
+- `src/main/AndroidManifest.xml` is the manifest file that describes the app's components, permissions, and other essential information.<br>
+- `src/test/` is the directory for unit tests.<br>
+- `src/test/java/` contains the Java code for unit tests.<br>
+- `build.gradle` is the build configuration file for the project.<br><br>
+
+Keep in mind that this structure can vary depending on the specific project setup and any additional modules or libraries used in the app.
+     </p>
+</div>
+<div class="container">
+			     <h4>
+What are dependencies
+			     </h4>
+				<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-java" id="code">dependencies {
+    implementation 'androidx.appcompat:appcompat:1.3.1' // Support Library Dependency
+    implementation 'com.google.android.material:material:1.4.0' // Material Design Dependency
+
+    // ... other dependencies
+}
+</code></pre>
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+In Android development, dependencies are external libraries or modules that your app relies on to provide additional functionality or resources. Dependencies are defined in the build configuration files of your project, such as the `build.gradle` file, and are automatically downloaded and included in your app during the build process.
+<br><br>
+Here are some key points regarding the importance of dependencies in Android development:
+<br><br>
+1. **Code Reusability**: Dependencies allow you to reuse existing libraries or modules developed by others, saving you time and effort in implementing common functionalities. These libraries can provide features such as networking, database access, user interface components, image loading, and much more. By leveraging dependencies, you can build upon existing solutions and focus on developing the unique aspects of your app.
+<br><br>
+2. **Rapid Development**: Dependencies enable faster development by providing pre-built components and tools. You can integrate these components into your app without starting from scratch. This speeds up development time, especially for complex features that would otherwise require significant effort to implement.
+<br><br>
+3. **Efficiency and Performance**: Dependencies often include optimized and well-tested code, ensuring efficiency and performance in your app. These libraries are typically developed by experts and undergo rigorous testing and optimization processes. By relying on well-established dependencies, you can leverage their performance improvements and avoid reinventing the wheel.
+<br><br>
+4. **Access to Latest Features**: Dependencies frequently release updates and new versions that incorporate the latest features, bug fixes, and security patches. By regularly updating your dependencies, you can take advantage of these improvements without having to implement them manually.
+<br><br>
+5. **Community Support and Documentation**: Popular dependencies often have active communities surrounding them. This means you can find resources, documentation, tutorials, and community support when working with these libraries. This support can be invaluable when facing challenges or seeking guidance on best practices.
+<br><br>
+6. **Focus on Core Development**: By utilizing dependencies, you can focus your development efforts on the unique aspects and core functionality of your app. Instead of spending time on low-level details, you can leverage existing solutions and concentrate on delivering the value that sets your app apart.
+<br><br>
+Overall, dependencies play a crucial role in Android development by providing access to pre-built components, improving development efficiency, enhancing app performance, and facilitating code reuse. They are an essential part of the ecosystem that enables developers to create feature-rich, high-quality apps efficiently.
+     </p>
+</div>
+			<div class="container">
+			     <h4>
+What is Build gradle file
+			     </h4>
+				<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-java" id="code">// App module's build.gradle file
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.myapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // ... other configurations
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+
+    // ... other dependencies
+}
+</code></pre>
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+In Android development, the `build.gradle` file is an essential configuration file used to define the build settings and dependencies for your Android project. It is located in the root directory of your project and is used by the build system, such as Gradle, to compile, package, and build your Android application.
+<br>
+The `build.gradle` file has two main variants:
+<br><br>
+1. **Project-level `build.gradle`**: This file is located in the root directory of your project and defines the build configuration for the entire project. It includes settings such as the Gradle version, repositories for downloading dependencies, and other global build settings.
+<br><br>
+2. **Module-level `build.gradle`**: This file is located in the module directory (usually the `app` module) and defines the build configuration specific to that module. It includes settings such as the application ID, version code, version name, dependencies, and other module-specific build settings.
+<br><br>
+Here are some key aspects and importance of the `build.gradle` file:
+<br>
+1. **Dependency Management**: The `build.gradle` file allows you to specify the dependencies your project requires. Dependencies can include external libraries, frameworks, or modules that provide additional functionality to your app. You can declare dependencies and their versions, and the build system automatically downloads and includes them during the build process.
+<br><br>
+2. **Build Types and Variants**: The `build.gradle` file allows you to define different build types, such as `debug` and `release`, with specific configurations. You can specify different application IDs, signing configurations, and other settings for each build type. This is crucial for generating different versions of your app for testing, debugging, and production.
+<br><br>
+3. **Product Flavors**: Product flavors allow you to create different variants of your app with custom features or resources. You can define flavors for different target audiences, regions, or any other criteria. Each flavor can have its own application ID, resources, and dependencies, enabling you to build multiple versions of your app from a single codebase.
+<br><br>
+4. **Configuration and Customization**: The `build.gradle` file provides a flexible and powerful scripting environment where you can customize various build settings. You can configure the compilation options, enable or disable features, specify resource directories, set up build tasks, define custom Gradle plugins, and more. This flexibility allows you to tailor the build process to suit your specific requirements.
+<br><br>
+5. **Integration with Build Tools**: The `build.gradle` file integrates with build tools such as Gradle and Android Studio. It enables seamless integration of build tasks, code analysis, lint checks, resource merging, and other build-related processes. Android Studio uses the `build.gradle` file to synchronize the project structure, generate APKs, and provide a user-friendly interface for managing dependencies and build configurations.
+<br><br>
+Overall, the `build.gradle` file is crucial for configuring and managing the build process of your Android project. It allows you to define dependencies, customize build settings, create different build variants, and integrate with build tools. Understanding and correctly configuring the `build.gradle` file is essential for successful Android app development.
+     </p>
+</div>
+			<div class="container">
+			     <h4>
+What will happen if I put a Java or XML file in wrong directory in Android Development 
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText(this)"><code class="language-java" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+If you put a Java or XML file in the wrong directory in Android development, it can lead to various issues and errors during the build and compilation process. Here are some possible consequences:
+<br>
+1. **Compilation Errors**: The build system, such as Gradle, expects specific file locations and directory structures. Placing a Java or XML file in the wrong directory may result in compilation errors. The build process may fail, and you will see error messages indicating that the file cannot be found or that the file is in the wrong location.
+<br><br>
+2. **Resource Not Found**: In the case of XML files, if you place them in the wrong directory, they may not be recognized as valid resources. When referencing these resources in other XML files or Java code, you may encounter resource not found errors. The Android framework relies on the correct file locations to locate and load resources appropriately.
+<br><br>
+3. **Class Not Found**: If you place a Java file in the wrong directory, it may not be recognized as a valid Java class. Other parts of your code, such as activities, fragments, or services, may try to reference this class, resulting in class not found errors. The correct package structure is essential for the proper functioning of your Java code.
+<br><br>
+4. **Inconsistent Build**: Placing files in the wrong directory can cause inconsistencies in the build process. The build system relies on a specific directory structure to organize and process files efficiently. By deviating from this structure, you may encounter unpredictable build issues, and the resulting APK may not include the intended files or resources.
+<br><br>
+To avoid these problems, it's crucial to adhere to the recommended project structure and directory conventions in Android development. Place Java files in the appropriate package directories, and XML files in the designated resource directories. Following the standard structure ensures that the build system and Android framework can locate and process your files correctly.
+<br><br>
+If you accidentally place a file in the wrong directory, you should move it to the correct location and update any references to that file in your code. Additionally, ensure that your build configurations and Gradle files reflect the correct file locations and dependencies.
+     </p>
+</div>
+<div class="container">
+			     <h4>
+What is Android Manifest File
+			     </h4>
+				<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-java" id="code">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp"&gt;
+
+    &lt;application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"&gt;
+
+        &lt;activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"&gt;
+
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.MAIN" /&gt;
+
+                &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+        
+    &lt;/application&gt;
+
+    &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+
+&lt;/manifest&gt;
+</code></pre>
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+    The AndroidManifest.xml file is an important configuration file in Android development. It provides essential
+    information about your Android application to the Android operating system. Here's an example of a basic
+    AndroidManifest.xml file:
+    <br>
+    In the above code:
+    <br><br>
+    - The <code>&lt;manifest&gt;</code> tag is the root element of the AndroidManifest.xml file and defines the package
+    name for your application using the <code>package</code> attribute.
+    <br><br>
+    - The <code>&lt;application&gt;</code> tag represents your application and contains various attributes and child
+    elements. In this example, attributes such as <code>allowBackup</code>, <code>icon</code>, <code>label</code>,
+    <code>supportsRtl</code>, and <code>theme</code> are set.
+    <br><br>
+    - The <code>&lt;activity&gt;</code> tag represents an activity component of your application. In this example, an
+    activity named <code>MainActivity</code> is defined with attributes such as <code>name</code>, <code>label</code>,
+    and <code>theme</code>.
+    <br><br>
+    - The <code>&lt;intent-filter&gt;</code> tag is used to specify the intent filters for the activity. In this case,
+    it defines that the <code>MainActivity</code> is the main entry point of the application (<code>MAIN</code>
+    action and <code>LAUNCHER</code> category).
+    <br><br>
+    - You can include additional components like services, receivers, content providers, etc., within the
+    <code>&lt;application&gt;</code> tag as per your application's requirements.
+    <br><br>
+    - The <code>&lt;uses-permission&gt;</code> tag is used to declare permissions required by your application. In this
+    example, it declares the <code>INTERNET</code> permission.
+    <br><br>
+    Note that the actual content of the AndroidManifest.xml file can vary depending on the components and permissions
+    required by your specific application.
+</p>
+</div>
+<div class="container">
+			     <h4>
+What are colors.xml, style.xml and strings.xml
+			     </h4>
+				<div class="chart" id="chart1">
+				     <!-- <pre onclick="copyText(this)"><code class="language-java" id="code"></code></pre> -->
+				</div>
+	  	<p class="p"><span>Explanation</span> :
+In Android development, `colors.xml`, `style.xml`, and `strings.xml` are resource files that are used to define colors, styles, and strings respectively. These files are typically located in the `res/values` directory of an Android project and are used to store resources that can be referenced and used throughout the application.
+<br><br>
+1. **colors.xml**:
+   The `colors.xml` file is used to define color values that can be used in various UI elements of the application. It allows you to define custom colors or reference predefined color resources. By defining colors in this file, you can ensure consistency in the color scheme across different UI elements.
+<br><br>
+2. **style.xml**:
+   The `style.xml` file is used to define styles for UI elements in your application. Styles are a set of attributes that can be applied to one or more views to define their appearance and behavior. By defining styles, you can easily apply a consistent look and feel to multiple views or components in your application.
+<br><br>
+3. **strings.xml**:
+   The `strings.xml` file is used to define string values that are displayed in the user interface of the application. It is a best practice to store all the static text used in your application, such as labels, button text, error messages, etc., in this file. By separating the strings from the code, it becomes easier to manage and localize the text for different languages.
+<br><br>
+Using separate resource files like `colors.xml`, `style.xml`, and `strings.xml` allows for easier customization, reusability, and localization of resources in an Android application. It promotes a modular and organized approach to managing resources and helps maintain a consistent user experience throughout the app.
+     </p>
+</div>
+			
+			
+			
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 Android Development Guide</p>
+	</footer>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.min.js"></script>
+	<script>
+		Prism.highlightAll();
+	</script>
+	<script>
+        function copyText(element) {
+            var text = element.textContent;
+
+            navigator.clipboard.writeText(text)
+                .then(function() {
+                    alert("Text copied to clipboard!");
+                })
+                .catch(function(error) {
+                    console.error("Failed to copy text: ", error);
+                });
+        }
+    </script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /`([^`]+)`/g;
+    var styledText = text.replace(regex, '<redtag class="backtick-text">$1</redtag>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /\*\*([^*]+)\*\*/g;
+    var styledText = text.replace(regex, '<span class="highlighted-text">$1</span>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+
+
+</body>
+</html>
