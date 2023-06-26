@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <title>Learn Web Development</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        header h1{
+             font-size:30px;
+        }
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+            color:white;
+            text-align:center;
+            text-shadow: 2px 2px 8px black;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        pre{
+            padding:0px;
+
+        }
+        .container h4{
+            padding:5px;
+            width:100%;
+        }
+        .p{
+            background:#FEFCF3;
+            padding:0px;
+            font-size:13px;
+            
+        }
+        .p span{
+            background-color:#F5EBE0;
+            font-size:13px;
+        }
+        .chart {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width:100%;
+            overflow:scroll;
+            margin-bottom: 20px;
+        }
+        redtag{
+            color:green;
+            margin-top:1px;
+            font-size:13px;
+            font-family: 'Kanit', sans-serif;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100vh;
+            background-color: black;
+            transition: width 0.3s ease;
+            color:black;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: "\2630"; /* Hamburger icon */
+        }
+
+        .icon.open::before {
+            content: "\2716"; /* Close icon */
+        }
+
+        .icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color:white;
+            cursor: pointer;
+        }
+
+        #navbarList {
+            margin-top: 50px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #navbarList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #navbarList li a {
+            text-decoration: none;
+            color:white;
+        }
+        #code {
+        font-size: 12px;
+        }
+        
+@media(min-width:700px){
+     .p{
+          font-size:9px;
+     }
+     redtag{
+          font-size:10px;
+          color:red;
+     }
+     h4{
+          font-size:10px;
+     }
+     p span{
+          font-size:7px;
+     }
+}
+#icon-container {
+  position: fixed;
+  left: 88%;
+  top: 90px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#whatsapp-icon {
+  font-size: 32px;
+  cursor: pointer;
+  color:black;
+  
+}
+@media screen and (max-width: 600px) {
+  .highlighted-text {
+    font-size: 14px !important;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .highlighted-text {
+    font-size: 10px !important;
+    color: green;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .highlighted-text {
+    font-size: 10px !important;
+    color: orange;
+  }
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+</head>
+<body>
+<div class="navbar" id="navbar">
+    <!-- <div class="icon" onclick="toggleNavbar()"></div> -->
+<!-- <div id="icon-container">
+  <a href="https://wa.me/whatsappphonenumber" target="_blank" id="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<script>
+const whatsappIcon = document.getElementById('whatsapp-icon');
+const whatsappPhoneNumber = '7668703721'; // Replace with your phone number
+
+whatsappIcon.href = `https://wa.me/${whatsappPhoneNumber}`;
+     
+</script> -->
+    <ul id="navbarList">
+        <li><a href="index.html">Chapter 0 - Starting with small project</a></li>
+        <li><a href="ch_1_throey.html">Chapter 1 - The Theory</a></li>
+        <li><a href="ML_ch2.html">Chapter 2 - Machine Learning - I</a></li>
+        <li><a href="datacleaning_ch3.html">Chapter 3 - Data Cleaning</a></li>
+        <li><a href="dataVis_ch4.html">Chapter 4 - Data Visualization</a></li>
+        <li><a href="#">Chapter 6 - Conclusion</a></li>
+        <li><a href="#">Chapter 7 - Appendix A</a></li>
+        <li><a href="#">Chapter 8 - Appendix B</a></li>
+        <li><a href="#">Chapter 9 - Glossary</a></li>
+        <li><a href="#">Chapter 10 - Index</a></li>
+    </ul>
+</div>
+
+<script>
+    function toggleNavbar() {
+        var navbar = document.getElementById('navbar');
+        var icon = document.querySelector('.icon');
+        
+        if (navbar.style.width === '300px') {
+            navbar.style.width = '0';
+            icon.classList.remove('open');
+        } else {
+            navbar.style.width = '300px';
+            icon.classList.add('open');
+        }
+    }
+</script>
+
+<header>
+    <h1>Web Development</h1>
+</header>
+<main>
+    <section>
+        <!-- <h2>XML</h2> -->
+
+<div class="container">
+			     <h4>
+What is HTML
+			     </h4>
+				
+	  	<p class="p"><span>Explanation</span> :
+HTML stands for Hypertext Markup Language. It is the standard markup language used for creating and structuring web pages and applications. HTML uses a set of markup tags to define the structure and layout of a web document, including text, images, links, and other elements.
+<br><br>
+HTML documents are composed of elements that are represented by tags. Tags are enclosed in angle brackets (&lt &gt;) and usually come in pairs, with an opening tag and a closing tag. The opening tag denotes the beginning of an element, and the closing tag denotes the end. Content placed between the opening and closing tags is the content of that element.
+<br><br>
+Here's a simple example of an HTML document structure:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt!DOCTYPE html&gt;
+&lthtml&gt;
+&lthead&gt;
+  &lttitle&gt;My First Web Page&lt/title&gt;
+&lt/head&gt;
+&ltbody&gt;
+  &lth1&gt;Welcome to My Web Page&lt/h1&gt;
+  &ltp&gt;This is a paragraph of text.&lt/p&gt;
+  &ltimg src="image.jpg" alt="An image"&gt;
+  &lta href="https://www.example.com"&gt;Click here&lt/a&gt; to visit Example.com.
+&lt/body&gt;
+&lt/html&gt;</code></pre>
+				</div>
+<p class="p">
+In this example, we have an HTML document that includes the basic structure of an HTML page. The `&lthtml&gt;` element is the root element, containing the entire HTML document. The `&lthead&gt;` element provides information about the document, such as the title displayed in the browser's title bar. The `&ltbody&gt;` element contains the visible content of the page, including headings `&lth1&gt;`, paragraphs `&ltp&gt;`, images `&ltimg&gt;`, and links `&lta&gt;`.
+<br><br>
+HTML provides a wide range of tags for structuring content, creating lists, embedding multimedia, and more. It also allows you to apply styles to elements using CSS (Cascading Style Sheets) and add interactivity through JavaScript. With HTML, web developers can create rich, interactive web pages and applications that can be viewed in web browsers.
+     </p>
+</div>
+<div class="container">
+			     <h4>
+What is CSS ans JAVASCRIPT
+			     </h4>
+	  	<p class="p"><span>Explanation</span> :
+ CSS (Cascading Style Sheets) and JavaScript are two important technologies used in conjunction with HTML to enhance the functionality and appearance of web pages.
+<br><br>
+**CSS:**<br>
+CSS is a styling language used to describe the presentation and visual style of an HTML document. It provides a way to define the layout, colors, fonts, sizes, and other visual aspects of elements on a webpage. By separating the content (HTML) from the presentation (CSS), CSS allows developers to have more control over the appearance of a web page and create consistent styles across multiple pages.
+<br><br>
+With CSS, you can target specific HTML elements or groups of elements and apply various styles to them. CSS rules consist of selectors that specify the elements to style, and declarations that define the styles to apply. CSS styles can be defined inline within HTML elements, in the `&lt;head&gt;` section of an HTML document using `&lt;style&gt;` tags, or in external CSS files that are linked to the HTML document.
+<br><br>
+**JavaScript:**<br>
+JavaScript is a programming language that allows developers to add interactivity, dynamic behavior, and functionality to web pages. It is primarily used on the client-side, running directly in the user's web browser. JavaScript can manipulate HTML elements, respond to user actions, handle form submissions, create animations, make AJAX requests to the server, and perform a wide range of other tasks.
+<br><br>
+With JavaScript, you can access and modify the content and structure of an HTML document, handle events like clicks and keypresses, validate form inputs, perform calculations, manipulate data, and interact with APIs to fetch and send data asynchronously. JavaScript code is typically embedded within HTML using `&lt;script&gt;` tags or stored in separate external files and linked to HTML documents.
+<br><br>
+By combining HTML, CSS, and JavaScript, developers can create rich and interactive web experiences, build web applications, and implement complex functionality on the client-side.
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p">
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Why use HTML CSS And JAVASCRIPT
+			     </h4>
+	  	<p class="p"><span>Explanation</span> :
+ HTML, CSS, and JavaScript are the three core technologies used in web development, and they each serve different purposes:
+<br><br>
+1. **HTML** (Hypertext Markup Language):
+HTML provides the structure and content of a web page. It is responsible for defining the elements and their layout on a webpage, such as headings, paragraphs, lists, images, forms, and more. HTML acts as the foundation of a web page, organizing the content into a structured format that browsers can understand and render.
+<br><br>
+2. **CSS** (Cascading Style Sheets):
+CSS is used to style and format the HTML elements defined in the web page. It allows developers to control the visual presentation of the content, such as colors, fonts, layouts, sizes, and positioning. CSS separates the presentation from the structure, enabling consistent styling across multiple web pages and providing flexibility in terms of design customization.
+<br><br>
+3. **JavaScript**:
+JavaScript is a programming language that adds interactivity and dynamic functionality to web pages. It enables developers to create interactive features, respond to user actions, validate form inputs, manipulate content on the fly, fetch and display data from servers, create animations, and much more. JavaScript brings life to web pages by allowing them to respond and adapt to user interactions.
+<br><br>
+Here are the reasons why HTML, CSS, and JavaScript are used together in web development:
+<br><br>
+1. `Separation of Concerns:` HTML, CSS, and JavaScript provide a clear separation of concerns. HTML focuses on content and structure, CSS handles the visual presentation, and JavaScript deals with the interactivity and functionality. This separation makes code easier to manage, understand, and maintain.
+<br><br>
+2. `Enhanced User Experience:` With JavaScript, you can create dynamic and interactive web applications that respond to user actions in real-time. This improves the user experience by providing features like form validation, interactive maps, sliders, dropdown menus, live data updates, and more.
+<br><br>
+3. `Cross-Browser Compatibility:` HTML, CSS, and JavaScript are supported by all major web browsers, ensuring that your web pages will work consistently across different platforms and devices.
+<br><br>
+4. `Flexibility and Customization:` CSS allows you to customize the visual appearance of your web pages, providing flexibility in design. JavaScript enables you to implement custom functionalities tailored to your specific needs.
+<br><br>
+5. `Efficient Development:` HTML, CSS, and JavaScript have extensive documentation, a wide range of libraries and frameworks, and a large developer community. This ecosystem makes web development more efficient, allowing you to leverage existing resources and tools to build robust and scalable applications.
+<br><br>
+In summary, HTML, CSS, and JavaScript are essential tools for web development as they collectively provide structure, styling, interactivity, and functionality to create engaging and user-friendly web experiences.
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p">
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Structure of HTML
+			     </h4>
+	  	<p class="p"><span>Explanation</span> :
+The basic structure of an HTML document consists of several components:
+<br><br>
+1. Document Type Declaration (&lt!DOCTYPE&gt;): This declaration is optional but recommended. It informs the web browser about the version of HTML being used in the document. For example, `&lt!DOCTYPE html&gt;` specifies that the document follows the HTML5 standard.
+<br><br>
+2. HTML Element: The HTML element is the root element of an HTML document. It encloses all other elements in the document. It is represented by the `&lthtml&gt;` tag.
+<br><br>
+3. Head Section: The head section contains meta-information about the HTML document. It includes the title of the page, character encoding, external CSS or JavaScript files, and other metadata. It is enclosed within the `&lthead&gt;` tags.
+<br><br>
+4. Title Element: The title element defines the title of the web page. It appears in the title bar of the browser window or in the browser's tab. The title element is placed within the `&lttitle&gt;` tags, which are located inside the `&lthead&gt;` section.
+<br><br>
+5. Body Element: The body element represents the main content of the web page. It contains all the visible elements like headings, paragraphs, images, links, and other HTML elements. It is enclosed within the `&ltbody&gt;` tags.
+<br><br>
+Here's an example of the basic structure of an HTML document:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt!DOCTYPE html&gt;
+&lthtml&gt;
+&lthead&gt;
+    &lttitle&gt;My Web Page&lt/title&gt;
+&lt/head&gt;
+&ltbody&gt;
+    &lth1&gt;Welcome to My Web Page&lt/h1&gt;
+    &ltp&gt;This is a paragraph of text.&lt/p&gt;
+    &ltimg src="image.jpg" alt="My Image"&gt;
+    &lta href="https://www.example.com"&gt;Visit Example&lt/a&gt;
+&lt/body&gt;
+&lt/html&gt;</code></pre>
+				</div>
+				<p class="p">
+In the example, we have a basic HTML document that includes the DOCTYPE declaration, `&lthtml&gt;`, `&lthead&gt;`, and `&ltbody&gt;` elements. Inside the body, we have a heading (`&lth1&gt;`), a paragraph (`&ltp&gt;`), an image (`&ltimg&gt;`), and a link (`&lta&gt;`).
+<br><br>
+This structure forms the foundation of an HTML document, and you can add more elements and nested structures to create more complex web pages.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+What is CSS
+			     </h4>
+	  	<p class="p"><span>Explanation</span> :
+The basic structure of CSS (Cascading Style Sheets) involves selectors and declarations. Selectors target HTML elements, while declarations define the style properties to be applied. Here's an example of the basic structure of CSS:<br><br>
+selector {<br>
+    property1: value1;<br>
+    property2: value2;<br>
+    /* Additional properties */<br>
+}<br><br>
+Let's break it down:
+<br><br>
+1. Selector: A selector is used to target HTML elements that you want to style. It can be an HTML element name, class, ID, or a combination of these. Selectors are followed by curly braces `{}`.
+<br><br>
+2. Properties: Properties define the visual characteristics or behavior of the selected elements. They are followed by a colon `:`.
+<br><br>
+3. Values: Values are assigned to properties and specify how the selected elements should appear or behave. Different properties accept different types of values.
+<br><br>
+Here's an example that demonstrates the basic structure of CSS with some common properties:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">/* Selects all p elements */
+p {
+    color: blue;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+}</code></pre>
+				</div>
+				<p class="p">
+In the example, the selector `p` targets all `&lt;p&gt;` elements. The declarations inside the curly braces define the styles for those paragraphs:<br>
+<br><br>
+- `color` sets the text color to blue.&lt;br&gt;<br>
+- `font-size` specifies the font size as 16 pixels.&lt;br&gt;<br>
+- `font-family` sets the font family to Arial, followed by a fallback option of sans-serif.&lt;br&gt;<br>
+- `margin-bottom` adds a bottom margin of 10 pixels to create spacing between paragraphs.
+&lt;br&gt;&lt;br&gt;<br>
+CSS allows you to define a wide range of properties and values to customize the appearance of HTML elements. By using CSS, you can control properties like colors, fonts, sizes, margins, padding, backgrounds, borders, and many more, giving you precise control over the visual aspects of your web page.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+What are the Languages Used in Web Development
+			     </h4>
+	  	<p class="p"><span>Explanation</span> :
+ In addition to HTML, CSS, and JavaScript, there are several other languages commonly used in web development. Here are a few notable ones:
+<br><br>
+1. **PHP**: PHP (Hypertext Preprocessor) is a server-side scripting language used for web development. It is widely used for building dynamic websites and web applications. PHP is executed on the server, generating HTML that is then sent to the client's browser.
+<br><br>
+2. **Python**: Python is a versatile programming language used in various domains, including web development. It offers several frameworks such as Django and Flask, which facilitate the development of web applications. Python can be used both on the server-side and client-side with frameworks like Flask and JavaScript with frameworks like Node.js.
+<br><br>
+3. **Ruby**: Ruby is a dynamic, object-oriented scripting language known for its simplicity and readability. It is often used with the Ruby on Rails framework for building web applications. Ruby on Rails follows the MVC (Model-View-Controller) pattern and emphasizes convention over configuration.
+<br><br>
+4. **Java**: Java is a widely-used programming language known for its platform independence and robustness. It is commonly used for building enterprise-level web applications. Java has frameworks such as Spring and JavaServer Faces (JSF) that facilitate web development.
+<br><br>
+5. **C#**: C# (pronounced "C sharp") is a programming language developed by Microsoft. It is commonly used for building web applications on the Microsoft .NET framework. C# is often used with ASP.NET for server-side web development.
+<br><br>
+6. **Ruby**: Ruby is a dynamic, object-oriented scripting language known for its simplicity and readability. It is often used with the Ruby on Rails framework for building web applications. Ruby on Rails follows the MVC (Model-View-Controller) pattern and emphasizes convention over configuration.
+<br><br>
+7. **Go**: Go (or Golang) is a statically-typed programming language developed by Google. It is known for its efficiency and simplicity. Go is used for building scalable and high-performance web applications.
+<br><br>
+8. **Swift**: Swift is a programming language developed by Apple for iOS, macOS, watchOS, and tvOS app development. It can also be used for server-side web development using frameworks like Vapor.
+<br><br>
+These are just a few examples of languages used in web development. The choice of language depends on various factors, including the specific requirements of the project, the developer's familiarity with the language, and the available frameworks and tools.
+     </p>
+<!-- <div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div> -->
+				<p class="p">
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+HTML Basic Structure
+			     </h4>
+	  	<p class="p"><span>Explanation</span> :
+ Certainly! Here's an example of a basic HTML structure with comments explaining each line:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt!DOCTYPE html>
+&lthtml>
+&lthead>
+    &lt!-- The &lt!DOCTYPE html> declaration defines the document type and version of HTML being used. -->
+    &ltmeta charset="UTF-8">
+    &lt!-- The &ltmeta> tag specifies the character encoding for the HTML document. UTF-8 supports a wide range of characters. -->
+    &lttitle>My Web Page&lt/title>
+    &lt!-- The &lttitle> element sets the title of the web page, which appears in the browser's title bar or tab. -->
+    &ltlink rel="stylesheet" type="text/css" href="styles.css">
+    &lt!-- The &ltlink> element is used to link an external CSS file to the HTML document. The "href" attribute specifies the file path of the CSS file. -->
+
+    &ltscript src="script.js">&lt/script>
+    &lt!-- The &ltscript> tag is used to embed or reference JavaScript code. The "src" attribute specifies the file path of the JavaScript file. -->
+&lt/head>
+&ltbody>
+    &lt!-- The &ltbody> element contains the visible content of the web page. -->
+    &ltheader>
+        &lt!-- The &ltheader> element represents the introductory content or a group of navigational links at the top of the page. -->
+        &lth1>Welcome to My Web Page&lt/h1>
+        &lt!-- The &lth1> element defines a heading. In this case, it is the main heading of the page. -->
+        &ltnav>
+            &lt!-- The &ltnav> element represents a section of navigation links. -->
+            &ltul>
+                &lt!-- The &ltul> element represents an unordered list. -->
+                &ltli>&lta href="index.html">Home&lt/a>&lt/li>
+                &lt!-- The &ltli> element represents a list item. The &lta> element creates a hyperlink with the "href" attribute specifying the destination URL. -->
+                &ltli>&lta href="about.html">About&lt/a>&lt/li>
+                &ltli>&lta href="contact.html">Contact&lt/a>&lt/li>
+            &lt/ul>
+        &lt/nav>
+    &lt/header>
+    
+    &ltmain>
+        &lt!-- The &ltmain> element represents the main content of the web page. -->
+        &lth2>About Me&lt/h2>
+        &ltp>I am a web developer passionate about creating beautiful and functional websites.&lt/p>
+    &lt/main>
+    
+    &ltfooter>
+        &lt!-- The &ltfooter> element represents the footer section of the web page. -->
+        &ltp>&copy; 2023 My Web Page. All rights reserved.&lt/p>
+    &lt/footer>
+&lt/body>
+&lt/html></code></pre>
+				</div>
+				<p class="p">
+I've added comments above each line of code to explain its purpose and functionality. These comments help clarify the role of each element and attribute in the HTML structure. Feel free to remove the comments when you're using the code in an actual HTML file.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Format of HTML
+			     </h4>
+	  	<p class="p">
+The format of an HTML document typically follows this structure:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;!-- Head section: contains meta information and external resources -->
+    &lt;meta charset="UTF-8">
+    &lt;title>Page Title&lt;/title>
+    &lt;!-- Additional meta tags, stylesheets, or scripts -->
+&lt;/head>
+&lt;body>
+    &lt;!-- Body section: contains the visible content of the web page -->
+    &lt;!-- Structural elements like headers, paragraphs, lists, images, etc. -->
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+Let's break down each section:
+<br><br>
+1. `&lt;!DOCTYPE html>`: This declaration specifies the document type and version of HTML being used. In this case, it's HTML5.
+<br><br>
+2. `&lt;html>`: The `&lt;html>` element is the root element and encapsulates the entire HTML document.
+<br><br>
+3. `&lt;head>`: The `&lt;head>` section contains metadata and external resources. It provides information about the document but is not directly visible in the browser.
+<br><br>
+4. `&lt;meta charset="UTF-8">`: This `&lt;meta>` tag specifies the character encoding for the HTML document. UTF-8 supports a wide range of characters.
+<br><br>
+5. `&lt;title>`: The `&lt;title>` element sets the title of the web page, which appears in the browser's title bar or tab.
+<br><br>
+6. Additional meta tags, stylesheets, or scripts: You can include additional `&lt;meta>` tags to define other metadata or specify links to external CSS stylesheets and JavaScript files.
+<br><br>
+7. `&lt;body>`: The `&lt;body>` section contains the visible content of the web page that will be rendered in the browser.
+<br><br>
+8. Structural elements: Inside the `&lt;body>`, you can include various HTML elements such as headers (`&lt;h1>`, `&lt;h2>`, etc.), paragraphs (`&lt;p>`), lists (`&lt;ul>`, `&lt;ol>`, `&lt;li>`), images (`&lt;img>`), and more.
+<br><br>
+This basic format provides the foundation for constructing an HTML document. You can add more elements and attributes based on your specific requirements to create a complete web page.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Headings
+			     </h4>
+	  	<p class="p">
+ Sure! Here's an example HTML code snippet with comments explaining the heading tags:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Heading Tags Example&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Heading Tags -->
+    &lt;h1>This is a level 1 heading&lt;/h1>
+    &lt;!-- The &lt;h1> element represents the highest level of heading -->
+
+    &lt;h2>This is a level 2 heading&lt;/h2>
+    &lt;!-- The &lt;h2> element represents a second-level heading -->
+
+    &lt;h3>This is a level 3 heading&lt;/h3>
+    &lt;!-- The &lt;h3> element represents a third-level heading -->
+
+    &lt;h4>This is a level 4 heading&lt;/h4>
+    &lt;!-- The &lt;h4> element represents a fourth-level heading -->
+
+    &lt;h5>This is a level 5 heading&lt;/h5>
+    &lt;!-- The &lt;h5> element represents a fifth-level heading -->
+
+    &lt;h6>This is a level 6 heading&lt;/h6>
+    &lt;!-- The &lt;h6> element represents the lowest level of heading -->
+
+    &lt;!-- Example usage -->
+    &lt;h2>About Us&lt;/h2>
+    &lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p>
+    &lt;h3>Our Services&lt;/h3>
+    &lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+- HTML provides six levels of heading tags, `&lt;h1>` to `&lt;h6>`, where `&lt;h1>` represents the highest level (most important) heading and `&lt;h6>` represents the lowest level (least important) heading.
+<br><br>
+- Heading tags are used to define the hierarchical structure and importance of the content on a web page. They help with readability, organization, and SEO (Search Engine Optimization).
+<br><br>
+- The content within the heading tags is typically displayed in a larger and bolder font by default, making it stand out from the rest of the text on the page.
+<br><br>
+- In the example code, we have used heading tags to create different levels of headings. The comments explain the purpose and level of each heading.<br><br>
+
+- Heading tags should be used semantically, meaning that the level of the heading should accurately reflect the importance and structure of the content. For example, an `&lt;h1>` tag is typically used for the main page heading or title, while lower-level headings like `&lt;h2>` and `&lt;h3>` are used for subheadings or sections within the page.
+<br><br>
+By using heading tags appropriately, you can create a well-structured and visually appealing document, making it easier for users to navigate and understand the content.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Paragraph tag in Html
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example HTML code snippet with comments explaining the paragraphs tags:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Paragraph Tags Example&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Paragraph Tags -->
+    &lt;p>This is the first paragraph.&lt;/p>
+    &lt;!-- The &lt;p> element represents a paragraph of text -->
+
+    &lt;p>This is another paragraph.&lt;/p>
+    &lt;!-- You can have multiple &lt;p> elements to create separate paragraphs -->
+
+    &lt;!-- Example usage -->
+    &lt;h2>About Us&lt;/h2>
+    &lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p>
+    &lt;!-- Paragraphs are commonly used to provide descriptive text and content -->
+
+    &lt;h3>Our Services&lt;/h3>
+    &lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p>
+    &lt;p>Nulla a dui id tellus maximus ullamcorper.&lt;/p>
+    &lt;!-- Multiple paragraphs can be used within a single section or block of content -->
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+- In HTML, the `&lt;p>` tag is used to define a paragraph of text.
+<br><br>
+- Paragraph tags are used to separate blocks of text into meaningful and coherent sections.
+<br><br>
+- By default, paragraphs are rendered as separate blocks with vertical spacing between them.
+<br><br>
+- The content within the `&lt;p>` tags can be any text or HTML elements.
+<br><br>
+- In the example code, we have used paragraph tags to create separate paragraphs. The comments explain the purpose and usage of each paragraph.
+<br><br>
+- Paragraphs are commonly used to provide descriptive text, introduce sections, or present content in a readable and structured manner.
+<br><br>
+- It's important to use paragraph tags appropriately and avoid using them for formatting purposes or to create line breaks. For line breaks, you can use the `&lt;br>` tag instead.
+<br><br>
+- You can include multiple paragraphs within a single section or block of content to provide more detailed information.
+<br><br>
+By using paragraph tags effectively, you can organize and structure your content in a logical and readable way, improving the overall user experience of your web page.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Anchor Tag
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example HTML code snippet with comments explaining the `&lt;a>` tag:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Anchor Tag in HTML&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Anchor Tag -->
+    &lt;a href="https://www.example.com">Visit Example Website&lt;/a>
+    &lt;!-- The &lt;a> element is used to create a hyperlink -->
+
+    &lt;a href="#section1">Go to Section 1&lt;/a>
+    &lt;!-- The href attribute specifies the destination of the hyperlink -->
+    &lt;!-- In this case, it uses a relative URL fragment identifier (#) to link to an element with the id "section1" on the same page -->
+
+    &lt;a href="mailto:contact@example.com">Send Email&lt;/a>
+    &lt;!-- The href attribute can also be used to create an email link -->
+    &lt;!-- In this case, it uses the "mailto" scheme followed by the email address to open the default email client with a new message -->
+
+    &lt;a href="tel:+1234567890">Call us at +1234567890&lt;/a>
+    &lt;!-- The href attribute can also be used to create a phone link -->
+    &lt;!-- In this case, it uses the "tel" scheme followed by the phone number to initiate a phone call when clicked on a supported device -->
+
+    &lt;a href="javascript:void(0);" onclick="myFunction()">Click me&lt;/a>
+    &lt;!-- The href attribute can also be used with JavaScript to execute a function when clicked -->
+    &lt;!-- In this case, it uses "javascript:void(0);" as the URL, which prevents the page from navigating to a new location -->
+    &lt;!-- The onclick attribute specifies the JavaScript function to execute when the link is clicked -->
+
+    &lt;a href="#" target="_blank">Open in a new tab&lt;/a>
+    &lt;!-- The target attribute specifies where to open the linked document -->
+    &lt;!-- In this case, the "_blank" value opens the link in a new tab or window -->
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+- The `&lt;a>` tag, also known as the anchor tag, is used to create hyperlinks in HTML.
+<br><br>
+- The `href` attribute specifies the destination of the hyperlink. It can take different values:
+<br><br>
+  - A URL: `&lt;a href="https://www.example.com">Visit Example Website&lt;/a>`<br>
+  - A URL fragment identifier: `&lt;a<br> href="#section1">Go to Section 1&lt;/a>`
+  - An email address: `&lt;a href="mailto:contact@example.com">Send Email&lt;/a>`<br>
+  - A phone number: `&lt;a href="tel<br>:+1234567890">Call us at +1234567890&lt;/a>`
+  - JavaScript code: `&lt;a href="javascript:void(0);" onclick="myFunction()">Click me&lt;/a>`
+<br>
+- The `target` attribute specifies where to open the linked document. It can take different values, such as "_blank" to open in a new tab or window: `&lt;a href="#" target="_blank">Open in a new tab&lt;/a>`
+<br><br>
+The `&lt;a>` tag provides a versatile way to link to different resources or execute actions based on the specified `href` value. It allows users to navigate between web pages, send emails, make phone calls, trigger JavaScript functions, and more.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Image in HTML
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example HTML code snippet with comments explaining the `&lt;img>` tag:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Image Tag in HTML&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Image Tag -->
+    &lt;img src="image.jpg" alt="Description of the image">
+    &lt;!-- The &lt;img> element is used to display an image on a web page -->
+
+    &lt;img src="image.jpg" alt="Description of the image" width="300" height="200">
+    &lt;!-- The src attribute specifies the source (URL or file path) of the image -->
+    &lt;!-- In this case, "image.jpg" is the image file located in the same directory as the HTML file -->
+
+    &lt;!-- The alt attribute provides alternative text for the image -->
+    &lt;!-- It is used by screen readers for accessibility and displayed if the image fails to load -->
+    &lt;!-- It should describe the content or purpose of the image -->
+
+    &lt;!-- The width and height attributes specify the dimensions of the image in pixels -->
+    &lt;!-- It is recommended to specify the dimensions to reserve space on the page before the image loads -->
+
+    &lt;img src="image.jpg" alt="Description of the image" title="Image Title">
+    &lt;!-- The title attribute provides additional information about the image -->
+    &lt;!-- It is displayed as a tooltip when the user hovers over the image -->
+
+    &lt;img src="image.jpg" alt="Description of the image" class="image-style">
+    &lt;!-- The class attribute applies a CSS class to the image -->
+    &lt;!-- It allows you to style multiple images with the same class using CSS -->
+
+    &lt;img src="image.jpg" alt="Description of the image" id="featured-image">
+    &lt;!-- The id attribute provides a unique identifier for the image -->
+    &lt;!-- It can be used to target the image with JavaScript or CSS for specific actions or styles -->
+
+    &lt;img src="image.jpg" alt="Description of the image" loading="lazy">
+    &lt;!-- The loading attribute controls how the image is loaded -->
+    &lt;!-- In this case, "lazy" is used to load the image only when it becomes visible in the viewport, improving page performance -->
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+- The `&lt;img>` tag is used to insert images into an HTML page.
+<br><br>
+- The `src` attribute specifies the source (URL or file path) of the image. It can be a relative or absolute URL: `&lt;img src="image.jpg" alt="Description of the image">`
+<br><br>
+- The `alt` attribute provides alternative text for the image. It should describe the content or purpose of the image. It is important for accessibility and is displayed if the image fails to load: `&lt;img src="image.jpg" alt="Description of the image">`
+<br><br>
+- The `width` and `height` attributes specify the dimensions of the image in pixels. It is recommended to specify these attributes to reserve space on the page before the image loads, preventing layout shifts: `&lt;img src="image.jpg" alt="Description of the image" width="300" height="200">`
+<br><br>
+- The `title` attribute provides additional information about the image. It is displayed as a tooltip when the user hovers over the image: `&lt;img src="image.jpg" alt="Description of the image" title="Image Title">`
+<br><br>
+- The `class` attribute applies a CSS class to the image. It allows you to style multiple images with the same class using CSS: `&lt;img src="image.jpg" alt="Description of the image" class="image-style">`
+<br><br>
+- The `id` attribute provides a unique identifier for the image. It can be used to target the image with JavaScript or CSS for specific actions or styles: `&lt;img src="image
+
+.jpg" alt="Description of the image" id="featured-image">`
+<br><br>
+- The `loading` attribute controls how the image is loaded. In this case, "lazy" is used to load the image only when it becomes visible in the viewport, improving page performance: `&lt;img src="image.jpg" alt="Description of the image" loading="lazy">`
+<br><br>
+The `&lt;img>` tag allows you to display images on a web page, providing various attributes to control the image source, dimensions, alternative text, titles, styles, and loading behavior.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Video in HTML
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example HTML code snippet with comments explaining the `&lt;video>` tag:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Video Tag in HTML&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Video Tag -->
+    &lt;video src="video.mp4" controls>
+        &lt;!-- The &lt;video> element is used to embed videos on a web page -->
+
+        &lt;!-- The src attribute specifies the source (URL or file path) of the video -->
+        &lt;!-- In this case, "video.mp4" is the video file located in the same directory as the HTML file -->
+
+        &lt;!-- The controls attribute displays standard video controls (play/pause, volume, etc.) -->
+        &lt;!-- It allows the user to interact with the video -->
+
+        &lt;!-- Optional Attributes -->
+        &lt;source src="video.webm" type="video/webm">
+        &lt;!-- The &lt;source> element provides alternative video sources in different formats -->
+        &lt;!-- It allows the browser to choose the most suitable format for playback -->
+        &lt;!-- In this case, "video.webm" is an alternative source in the WebM format -->
+
+        &lt;!-- The type attribute specifies the MIME type of the video -->
+        &lt;!-- It helps the browser determine which video format to use -->
+        &lt;!-- For example, "video/webm" is the MIME type for WebM videos -->
+
+        &lt;!-- Other attributes -->
+        &lt;track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
+        &lt;!-- The &lt;track> element is used to add subtitles or captions to the video -->
+        &lt;!-- The src attribute specifies the URL of the subtitles file -->
+        &lt;!-- The kind attribute specifies the type of subtitles (subtitles, captions, descriptions, etc.) -->
+        &lt;!-- The srclang attribute specifies the language of the subtitles -->
+        &lt;!-- The label attribute provides a label or title for the subtitles -->
+
+        &lt;!-- Additional settings and customization can be added here -->
+    &lt;/video>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+- The `&lt;video>` tag is used to embed videos on a web page.
+<br><br>
+- The `src` attribute specifies the source (URL or file path) of the video. It can be a relative or absolute URL: `&lt;video src="video.mp4" controls>`
+<br><br>
+- The `controls` attribute displays standard video controls (play/pause, volume, etc.) and allows the user to interact with the video: `&lt;video src="video.mp4" controls>`
+<br><br>
+- The `&lt;source>` tag is used to provide alternative video sources in different formats. It allows the browser to choose the most suitable format for playback: `&lt;source src="video.webm" type="video/webm">`
+<br><br>
+- The `type` attribute specifies the MIME type of the video. It helps the browser determine which video format to use. For example, "video/webm" is the MIME type for WebM videos: `&lt;source src="video.webm" type="video/webm">`
+<br><br>
+- The `&lt;track>` tag is used to add subtitles or captions to the video. The `src` attribute specifies the URL of the subtitles file, the `kind` attribute specifies the type of subtitles, the `srclang` attribute specifies the language of the subtitles, and the `label` attribute provides a label or title for the subtitles: `&lt;track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">`
+<br><br>
+- You can add additional settings, customization, or attributes within the `&lt;video>` element to control autoplay, loop, poster image, and more.
+<br><br>
+The `&lt;video>` tag provides a way to embed and control videos on a web page. You can specify the video source, display controls, provide alternative formats, add subtitles or captions, and
+ customize the playback behavior using various attributes and elements.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+List
+			     </h4>
+	  	<p class="p">
+Certainly! Here's an example HTML code snippet with comments explaining the `&lt;ul>`, `&lt;ol>`, and `&lt;li>` tags used for unordered and ordered lists:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>List Tags in HTML&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Unordered List -->
+    &lt;ul>
+        &lt;!-- The &lt;ul> element represents an unordered list -->
+        &lt;!-- It is used to create a bullet-pointed list -->
+
+        &lt;!-- List Item -->
+        &lt;li>Item 1&lt;/li>
+        &lt;!-- The &lt;li> element represents a list item -->
+        &lt;!-- It is used to define an individual item within a list -->
+
+        &lt;!-- List Item -->
+        &lt;li>Item 2&lt;/li>
+
+        &lt;!-- Nested List -->
+        &lt;ul>
+            &lt;!-- The &lt;ul> element can be nested inside another &lt;ul> or &lt;li> element -->
+            &lt;!-- It creates a nested or sub-list -->
+
+            &lt;!-- List Item -->
+            &lt;li>Sub-item 1&lt;/li>
+            &lt;!-- Nested lists can have their own list items -->
+
+            &lt;!-- List Item -->
+            &lt;li>Sub-item 2&lt;/li>
+        &lt;/ul>
+    &lt;/ul>
+
+    &lt;!-- Ordered List -->
+    &lt;ol>
+        &lt;!-- The &lt;ol> element represents an ordered list -->
+        &lt;!-- It is used to create a numbered list -->
+
+        &lt;!-- List Item -->
+        &lt;li>Item 1&lt;/li>
+
+        &lt;!-- List Item -->
+        &lt;li>Item 2&lt;/li>
+
+        &lt;!-- Nested List -->
+        &lt;ol>
+            &lt;!-- The &lt;ol> element can be nested inside another &lt;ol> or &lt;li> element -->
+            &lt;!-- It creates a nested or sub-list -->
+
+            &lt;!-- List Item -->
+            &lt;li>Sub-item 1&lt;/li>
+
+            &lt;!-- List Item -->
+            &lt;li>Sub-item 2&lt;/li>
+        &lt;/ol>
+    &lt;/ol>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+- The `&lt;ul>` element represents an unordered list and is used to create a bullet-pointed list: `&lt;ul>`
+<br><br>
+- The `&lt;ol>` element represents an ordered list and is used to create a numbered list: `&lt;ol>`
+<br><br>
+- The `&lt;li>` element represents a list item and is used to define an individual item within a list: `&lt;li>`
+<br><br>
+- For an unordered list (`&lt;ul>`), each list item (`&lt;li>`) is displayed with a bullet point by default.
+<br><br>
+- For an ordered list (`&lt;ol>`), each list item (`&lt;li>`) is displayed with a number (starting from 1) by default.
+<br><br>
+- Nested lists can be created by including another `&lt;ul>` or `&lt;ol>` element inside an `&lt;li>` or another list element.
+<br><br>
+- By nesting lists, you can create hierarchical or multi-level lists.
+<br><br>
+- The indentation in the code is purely for readability and does not affect the rendering of the list.
+<br><br>
+The `&lt;ul>`, `&lt;ol>`, and `&lt;li>` tags provide a way to create both unordered and ordered lists in HTML, allowing you to organize and structure information in a clear and meaningful way.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Input Tag in Html
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example HTML code snippet with comments explaining the `&lt;input>` tag and its related concepts:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Input Tag in HTML&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Text Input -->
+    &lt;label for="name">Name:&lt;/label>
+    &lt;!-- The &lt;label> element provides a text label for an input field -->
+    &lt;!-- The "for" attribute of the &lt;label> should match the "id" attribute of the associated input -->
+
+    &lt;input type="text" id="name" name="name" placeholder="Enter your name">
+    &lt;!-- The &lt;input> element is used to create an input field -->
+
+    &lt;!-- The "type" attribute specifies the type of input field -->
+    &lt;!-- In this case, "text" creates a single-line text input field -->
+
+    &lt;!-- The "id" attribute uniquely identifies the input field -->
+    &lt;!-- It is used to associate the &lt;label> with the input field -->
+
+    &lt;!-- The "name" attribute specifies the name of the input field -->
+    &lt;!-- It is used when the form data is submitted to the server -->
+
+    &lt;!-- The "placeholder" attribute provides a hint or example text for the input field -->
+    &lt;!-- It is displayed in the input field until the user enters a value -->
+
+    &lt;!-- Checkbox -->
+    &lt;input type="checkbox" id="agree" name="agree">
+    &lt;!-- The "type" attribute of "checkbox" creates a checkbox input field -->
+
+    &lt;!-- Radio Buttons -->
+    &lt;input type="radio" id="option1" name="option" value="1">
+    &lt;input type="radio" id="option2" name="option" value="2">
+    &lt;!-- The "type" attribute of "radio" creates a radio button input field -->
+
+    &lt;!-- The "name" attribute groups the radio buttons together -->
+    &lt;!-- Only one radio button with the same "name" can be selected -->
+
+    &lt;!-- The "value" attribute specifies the value of the selected radio button -->
+    &lt;!-- It is sent to the server when the form is submitted -->
+
+    &lt;!-- Submit Button -->
+    &lt;input type="submit" value="Submit">
+    &lt;!-- The "type" attribute of "submit" creates a submit button -->
+    &lt;!-- Clicking this button submits the form -->
+
+    &lt;!-- Reset Button -->
+    &lt;input type="reset" value="Reset">
+    &lt;!-- The "type" attribute of "reset" creates a reset button -->
+    &lt;!-- Clicking this button resets the form fields to their initial values -->
+
+    &lt;!-- Password Input -->
+    &lt;label for="password">Password:&lt;/label>
+    &lt;input type="password" id="password" name="password">
+    &lt;!-- The "type" attribute of "password" creates a password input field -->
+    &lt;!-- The entered text is masked to hide the characters -->
+
+    &lt;!-- File Upload -->
+    &lt;label for="file">Upload File:&lt;/label>
+    &lt;input type="file" id="file" name="file">
+    &lt;!-- The "type" attribute of "file" creates a file upload input field -->
+    &lt;!-- It allows users to browse and select a file from their device -->
+
+    &lt;!-- Hidden Input -->
+    &lt;input type="hidden" name="hidden" value="hidden value">
+    &lt;!-- The "type" attribute of "hidden" creates a hidden input field -->
+    &lt;!-- It is not visible to the user, but its value is submitted with the form -->
+
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+- The `&lt;input>` tag is a self-closing tag used to create various types of input fields in HTML forms.
+<br><br>
+- The "type" attribute specifies the type of input field, such as "text", "checkbox", "radio", "submit", "reset",
+
+ "password", "file", etc.
+<br><br>
+- The "id" attribute uniquely identifies the input field. It is used to associate the `&lt;label>` with the input field by matching the "for" attribute of the `&lt;label>` with the "id" attribute of the input field.
+<br><br>
+- The "name" attribute specifies the name of the input field. It is used when the form data is submitted to the server.
+<br><br>
+- The "value" attribute is used to specify the initial value of the input field or the value that is submitted to the server.
+<br><br>
+- The `&lt;label>` element provides a text label for an input field. It improves accessibility and usability by associating the label with its corresponding input field.
+<br><br>
+- The "placeholder" attribute provides a hint or example text for the input field. It is displayed in the input field until the user enters a value.
+<br><br>
+- Different input types, such as text inputs, checkboxes, radio buttons, password inputs, file uploads, and hidden inputs, have their specific purposes and behaviors.
+<br><br>
+- For checkboxes and radio buttons, the "name" attribute groups them together, and only one radio button with the same "name" can be selected.
+<br><br>
+- The "submit" type creates a submit button, which submits the form when clicked.
+<br><br>
+- The "reset" type creates a reset button, which resets the form fields to their initial values when clicked.
+<br><br>
+- The "password" type creates a password input field, where the entered text is masked to hide the characters.
+<br><br>
+- The "file" type creates a file upload input field, allowing users to browse and select a file from their device.
+<br><br>
+- The "hidden" type creates a hidden input field that is not visible to the user but is submitted with the form. It can be useful for passing additional data or values with the form submission.
+<br><br>
+These are some examples of how the `&lt;input>` tag can be used to create different types of input fields in HTML forms, allowing users to enter and submit data.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Button in Html
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example HTML code snippet with comments explaining the `&lt;button>` tag and its related concepts:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Button Tag in HTML&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Standard Button -->
+    &lt;button type="button">Click me!&lt;/button>
+    &lt;!-- The &lt;button> element creates a standard button -->
+
+    &lt;!-- The "type" attribute specifies the type of button -->
+    &lt;!-- In this case, "button" creates a button without any specific behavior -->
+
+    &lt;!-- Submit Button -->
+    &lt;button type="submit">Submit&lt;/button>
+    &lt;!-- The "type" attribute of "submit" creates a submit button -->
+    &lt;!-- Clicking this button submits the form -->
+
+    &lt;!-- Reset Button -->
+    &lt;button type="reset">Reset&lt;/button>
+    &lt;!-- The "type" attribute of "reset" creates a reset button -->
+    &lt;!-- Clicking this button resets the form fields to their initial values -->
+
+    &lt;!-- Button with Custom Styling -->
+    &lt;button type="button" style="background-color: blue; color: white;">Custom Button&lt;/button>
+    &lt;!-- You can apply custom CSS styles to the button using the "style" attribute -->
+    &lt;!-- In this example, the background color is set to blue and the text color to white -->
+
+    &lt;!-- Button with JavaScript Event -->
+    &lt;button type="button" onclick="alert('Button clicked!')">Click Me!&lt;/button>
+    &lt;!-- You can attach JavaScript code to the button using the "onclick" attribute -->
+    &lt;!-- In this example, an alert is displayed when the button is clicked -->
+
+    &lt;!-- Disabled Button -->
+    &lt;button type="button" disabled>Disabled Button&lt;/button>
+    &lt;!-- The "disabled" attribute disables the button, making it unclickable -->
+
+    &lt;!-- Button with Image -->
+    &lt;button type="button">
+        &lt;img src="button-icon.png" alt="Button Icon">
+        Click me!
+    &lt;/button>
+    &lt;!-- You can include an image inside the button using the &lt;img> tag -->
+    &lt;!-- The image serves as the button's icon, and the text is displayed alongside it -->
+
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+- The `&lt;button>` tag is used to create buttons in HTML.
+<br><br>
+- The "type" attribute specifies the type of button. The default type is "button".
+<br><br>
+- A standard button does not have any specific behavior associated with it.
+<br><br>
+- The "submit" type creates a submit button, which submits the form when clicked.
+<br><br>
+- The "reset" type creates a reset button, which resets the form fields to their initial values when clicked.
+<br><br>
+- You can apply custom CSS styles to the button using the "style" attribute. This allows you to customize the appearance of the button, such as its background color, text color, etc.
+<br><br>
+- You can attach JavaScript code to the button using the "onclick" attribute. This allows you to define a JavaScript function or an inline JavaScript code that will be executed when the button is clicked.
+<br><br>
+- The "disabled" attribute disables the button, making it unclickable. This is useful when you want to indicate that a button is inactive or unavailable.
+<br><br>
+- You can include an image inside the button using the `&lt;img>` tag. This allows you to use an image as the button's icon, with accompanying text.
+<br><br>
+These are some examples of how the `&lt;button>` tag can be used in HTML to create buttons with different behaviors, styles, and interactions.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Audio In HTML
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example HTML code snippet with comments explaining the `&lt;audio>` tag and its related concepts:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Audio Tag in HTML&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- Simple Audio Player -->
+    &lt;audio src="audio-file.mp3" controls>
+        Your browser does not support the audio element.
+    &lt;/audio>
+    &lt;!-- The &lt;audio> element is used to embed audio content in a web page -->
+
+    &lt;!-- The "src" attribute specifies the URL of the audio file -->
+    &lt;!-- In this example, the audio file "audio-file.mp3" is used -->
+    
+    &lt;!-- The "controls" attribute adds a simple audio player with play, pause, and volume controls -->
+    
+    &lt;!-- The content inside the &lt;audio> tag is displayed if the browser doesn't support the audio element -->
+
+    &lt;!-- Audio Player with Custom Controls -->
+    &lt;audio src="audio-file.mp3">
+        &lt;p>Your browser does not support the audio element.&lt;/p>
+        &lt;p>Download the audio file &lt;a href="audio-file.mp3">here&lt;/a>.&lt;/p>
+    &lt;/audio>
+    &lt;!-- You can customize the appearance of the audio player using CSS -->
+    &lt;!-- In this example, if the browser doesn't support the audio element, a message is displayed with a download link -->
+
+    &lt;!-- Audio Player with Autoplay -->
+    &lt;audio src="audio-file.mp3" autoplay>
+        Your browser does not support the audio element.
+    &lt;/audio>
+    &lt;!-- The "autoplay" attribute starts playing the audio automatically when the page loads -->
+
+    &lt;!-- Audio Player with Looping -->
+    &lt;audio src="audio-file.mp3" loop>
+        Your browser does not support the audio element.
+    &lt;/audio>
+    &lt;!-- The "loop" attribute makes the audio repeat continuously -->
+
+    &lt;!-- Audio Player with Preloading -->
+    &lt;audio src="audio-file.mp3" preload="auto">
+        Your browser does not support the audio element.
+    &lt;/audio>
+    &lt;!-- The "preload" attribute specifies how the audio should be preloaded -->
+    &lt;!-- In this example, "auto" indicates that the audio should be preloaded as soon as possible -->
+
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+- The `&lt;audio>` tag is used to embed audio content in a web page.
+<br><br>
+- The "src" attribute specifies the URL of the audio file. In the example, the audio file "audio-file.mp3" is used.
+<br><br>
+- The "controls" attribute adds a simple audio player with play, pause, and volume controls. This allows users to interact with the audio player.
+<br><br>
+- The content inside the `&lt;audio>` tag is displayed if the browser doesn't support the audio element. This can be used to provide a fallback message or alternative content.
+<br><br>
+- You can customize the appearance of the audio player using CSS. This allows you to style the player to match the design of your web page.
+<br><br>
+- The "autoplay" attribute starts playing the audio automatically when the page loads. This can be useful for background music or audio that should start playing without user interaction.
+<br><br>
+- The "loop" attribute makes the audio repeat continuously. This is commonly used for background music or ambient sounds.
+<br><br>
+- The "preload" attribute specifies how the audio should be preloaded. The "auto" value indicates that the audio should be preloaded as soon as possible.<br><br>
+
+These are some examples of how the `&lt;audio>` tag can be used in HTML to embed and control audio content on a web page.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Div In HTML
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example HTML code snippet with comments explaining the `&lt;div>` tag and its related concepts:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;title>Div Tag in HTML&lt;/title>
+    &lt;style>
+        /* CSS styling for demonstration purposes */
+        .container {
+            background-color: lightgray;
+            padding: 10px;
+        }
+
+        .box {
+            background-color: yellow;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    &lt;/style>
+&lt;/head>
+&lt;body>
+    &lt;!-- Using &lt;div> for Layout and Structure -->
+    &lt;div class="container">
+        &lt;h1>Welcome to My Website&lt;/h1>
+        &lt;p>This is the main content area of the page.&lt;/p>
+        &lt;div class="box">
+            &lt;h2>Section 1&lt;/h2>
+            &lt;p>This is some content within a div.&lt;/p>
+        &lt;/div>
+        &lt;div class="box">
+            &lt;h2>Section 2&lt;/h2>
+            &lt;p>This is another content section.&lt;/p>
+        &lt;/div>
+    &lt;/div>
+    &lt;!-- The &lt;div> tag is a container or division used to group and organize other HTML elements -->
+    &lt;!-- It does not carry any semantic meaning, but is useful for styling and layout purposes -->
+    
+    &lt;!-- You can assign a class attribute to a &lt;div> to target it with CSS or JavaScript -->
+    &lt;!-- In this example, the &lt;div> elements with the class "box" have a yellow background and padding -->
+
+    &lt;!-- The &lt;div> tag is often used to create a layout structure for web pages -->
+    &lt;!-- In this example, a &lt;div> with the class "container" acts as a container for the main content -->
+
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+- The `&lt;div>` tag is a container or division used to group and organize other HTML elements. It does not carry any semantic meaning.
+<br><br>
+- You can assign a class attribute to a `&lt;div>` to target it with CSS or JavaScript. In the example, the `&lt;div>` elements with the class "box" have a yellow background and padding.
+<br><br>
+- The `&lt;div>` tag is often used to create a layout structure for web pages. In the example, a `&lt;div>` with the class "container" acts as a container for the main content.
+<br><br>
+- By applying CSS styles to `&lt;div>` elements, you can control their appearance, positioning, and layout.
+<br><br>
+- The `&lt;div>` tag helps in organizing and structuring the content on a web page, making it easier to apply styling and manipulate the elements with JavaScript or other scripting languages.
+<br><br>
+Overall, the `&lt;div>` tag is a versatile element used for grouping and organizing other HTML elements, allowing for better styling and layout control on web pages.
+				</p>
+</div>
+<!-- <div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+ -->
+			
+			
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 Web Development Guide</p>
+	</footer>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-html.min.js"></script>
+	<script>
+		Prism.highlightAll();
+	</script>
+	<script>
+        function copyText(element) {
+            var text = element.textContent;
+
+            navigator.clipboard.writeText(text)
+                .then(function() {
+                    alert("Text copied to clipboard!");
+                })
+                .catch(function(error) {
+                    console.error("Failed to copy text: ", error);
+                });
+        }
+    </script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /`([^`]+)`/g;
+    var styledText = text.replace(regex, '<redtag class="backtick-text">$1</redtag>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /\*\*([^*]+)\*\*/g;
+    var styledText = text.replace(regex, '<span class="highlighted-text">$1</span>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+
+</body>
+</html>
