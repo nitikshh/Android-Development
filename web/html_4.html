@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <title>Learn Web Development</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        header h1{
+             font-size:30px;
+        }
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+            color:white;
+            text-align:center;
+            text-shadow: 2px 2px 8px black;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top:10px;
+        }
+        pre{
+            padding:0px;
+
+        }
+        .container h4{
+            padding:5px;
+            width:100%;
+        }
+        .p{
+            background:#FEFCF3;
+            padding:0px;
+            font-size:13px;
+            
+        }
+        .p span{
+            background-color:#F5EBE0;
+            font-size:13px;
+        }
+        .chart {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width:100%;
+            overflow:scroll;
+            margin-bottom: 20px;
+        }
+        redtag{
+            color:green;
+            margin-top:1px;
+            font-size:13px;
+            font-family: 'Kanit', sans-serif;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100vh;
+            background-color: black;
+            transition: width 0.3s ease;
+            color:black;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: "\2630"; /* Hamburger icon */
+        }
+
+        .icon.open::before {
+            content: "\2716"; /* Close icon */
+        }
+
+        .icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color:white;
+            cursor: pointer;
+        }
+
+        #navbarList {
+            margin-top: 50px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #navbarList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #navbarList li a {
+            text-decoration: none;
+            color:white;
+        }
+        #code {
+        font-size: 12px;
+        }
+        
+@media(min-width:700px){
+     .p{
+          font-size:9px;
+     }
+     redtag{
+          font-size:10px;
+          color:red;
+     }
+     h4{
+          font-size:10px;
+     }
+     p span{
+          font-size:7px;
+     }
+}
+#icon-container {
+  position: fixed;
+  left: 88%;
+  top: 90px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#whatsapp-icon {
+  font-size: 32px;
+  cursor: pointer;
+  color:black;
+  
+}
+@media screen and (max-width: 600px) {
+  .highlighted-text {
+    font-size: 14px !important;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .highlighted-text {
+    font-size: 10px !important;
+    color: green;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .highlighted-text {
+    font-size: 10px !important;
+    color: orange;
+  }
+}
+#code{
+     width:100%;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+</head>
+<body>
+<div class="navbar" id="navbar">
+    <!-- <div class="icon" onclick="toggleNavbar()"></div> -->
+<!-- <div id="icon-container">
+  <a href="https://wa.me/whatsappphonenumber" target="_blank" id="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<script>
+const whatsappIcon = document.getElementById('whatsapp-icon');
+const whatsappPhoneNumber = '7668703721'; // Replace with your phone number
+
+whatsappIcon.href = `https://wa.me/${whatsappPhoneNumber}`;
+     
+</script> -->
+    <ul id="navbarList">
+        <li><a href="index.html">Chapter 0 - Starting with small project</a></li>
+        <li><a href="ch_1_throey.html">Chapter 1 - The Theory</a></li>
+        <li><a href="ML_ch2.html">Chapter 2 - Machine Learning - I</a></li>
+        <li><a href="datacleaning_ch3.html">Chapter 3 - Data Cleaning</a></li>
+        <li><a href="dataVis_ch4.html">Chapter 4 - Data Visualization</a></li>
+        <li><a href="#">Chapter 6 - Conclusion</a></li>
+        <li><a href="#">Chapter 7 - Appendix A</a></li>
+        <li><a href="#">Chapter 8 - Appendix B</a></li>
+        <li><a href="#">Chapter 9 - Glossary</a></li>
+        <li><a href="#">Chapter 10 - Index</a></li>
+    </ul>
+</div>
+
+<script>
+    function toggleNavbar() {
+        var navbar = document.getElementById('navbar');
+        var icon = document.querySelector('.icon');
+        
+        if (navbar.style.width === '300px') {
+            navbar.style.width = '0';
+            icon.classList.remove('open');
+        } else {
+            navbar.style.width = '300px';
+            icon.classList.add('open');
+        }
+    }
+</script>
+
+<header>
+    <h1>Web Development</h1>
+</header>
+<main>
+    <section>
+        <!-- <h2>XML</h2> -->
+
+        
+<div class="container">
+			     <h4>
+Project - 2
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example of an HTML code that includes a form and CSS styling within a single file:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;title>Form Example&lt;/title>
+  &lt;style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    
+    textarea {
+      height: 100px;
+    }
+    
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;div class="container">
+    &lt;h2>Contact Form&lt;/h2>
+    &lt;form>
+      &lt;label for="name">Name:&lt;/label>
+      &lt;input type="text" id="name" name="name" placeholder="Enter your name" required>
+      
+      &lt;label for="email">Email:&lt;/label>
+      &lt;input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+      &lt;label for="message">Message:&lt;/label>
+      &lt;textarea id="message" name="message" placeholder="Enter your message" required>&lt;/textarea>
+      
+      &lt;input type="submit" value="Submit">
+    &lt;/form>
+  &lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In the above code, the HTML section contains a basic form structure, including input fields for name, email, and message, along with a submit button.
+<br><br>
+The CSS section provides styling for the form elements and the container. The form elements are styled to have consistent padding, border, and background color. The container has a maximum width, margin, background color, padding, border-radius, and box-shadow to create a card-like appearance.
+
+Feel free to modify the styles and structure as per your requirements.
+				</p>
+</div>
+<section id="code">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Example</title>
+  <style>
+   
+    
+    .containerr {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    
+    textarea {
+      height: 100px;
+    }
+    
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="containerr">
+    <h2>Contact Form</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+      
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>
+</section>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+     &lt;meta charset="UTF-8">
+     &lt;title>Page title&lt;/title>
+     &lt;style>
+.cta{
+    margin:10px auto; background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('image.jpeg');
+    background-position:center;
+    background-size:cover;
+    border-radius:10px;
+    text-align:center;
+    padding:100px 10px;
+    margin:10px;
+}
+.cta h1{
+    color:#fff;
+    margin-bottom:40px;
+    padding:0;
+}
+.hero-btn{
+    display:inline-block;
+    text-decoration:none;
+    color:#fff;
+    border:1px solid #fff;
+    padding: 12px 34px;
+    font-size:13px;
+    background:transparent;
+    position:relative;
+    cursor:pointer;
+}
+.hero-btn:hover{
+    border:1px solid #f44336;
+    background:#f44336;
+    transition:1s;
+}
+     &lt;/style>
+&lt;/head>
+&lt;body>
+     &lt;section class="cta">
+      &lt;h1>Entroll For Our Various Online Courses &lt;br> Anywhere From The World &lt;/h1>
+       &lt;a herf="" class="hero-btn">CONTACT US&lt;/a>
+     &lt;/section>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<!-- <p class="p"><span>Explanation</span> :
+
+				</p> -->
+</div>
+<section id="code">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>Page title</title>
+     <style>
+.cta{
+    margin:10px auto; background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('image.jpeg');
+    background-position:center;
+    background-size:cover;
+    border-radius:10px;
+    text-align:center;
+    padding:100px 10px;
+    margin:10px;
+}
+.cta h1{
+    color:#fff;
+    margin-bottom:40px;
+    padding:0;
+}
+.hero-btn{
+    display:inline-block;
+    text-decoration:none;
+    color:#fff;
+    border:1px solid #fff;
+    padding: 12px 34px;
+    font-size:13px;
+    background:transparent;
+    position:relative;
+    cursor:pointer;
+}
+.hero-btn:hover{
+    border:1px solid #f44336;
+    background:#f44336;
+    transition:1s;
+}
+     </style>
+</head>
+<body>
+     <section class="cta">
+      <h1>Entroll For Our Various Online Courses <br> Anywhere From The World </h1>
+       <a herf="" class="hero-btn">CONTACT US</a>
+     </section>
+</body>
+</html>
+</section>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+     &lt;meta charset="UTF-8">
+     &lt;title>Page Title&lt;/title>
+     &lt;style>
+          *{
+               margin:0;
+               padding:0;
+          }
+.Section_top {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    position: relative;
+    background-image: url('image.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    padding:20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    text-transform: uppercase;
+}
+
+.content h1 {
+    color: white;
+    font-size: 40px;
+    letter-spacing: 15px;
+}
+
+.content h1 span {
+    color: white;
+}
+
+.content a {
+    background: #85c1ee;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 8px;
+    border-radius: 20px;
+    margin: 10px;
+    color: #fff;
+}
+
+.content a:hover {
+    background: #034e88;
+}
+
+.hero-btn {
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero-btn:hover {
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+}
+     &lt;/style>
+&lt;/head>
+&lt;body>
+     &lt;div class="Section_top">
+       &lt;div class="content">
+           &lt;h1>Unlimited &lt;span>Developer&lt;/span>&lt;/h1>
+           &lt;a href="#">Welcome&lt;/a>
+           &lt;a class="hero-btn" href="#">Join Us&lt;/a>
+       &lt;/div>
+   &lt;/div>
+&lt;/body>
+&lt;/html>
+</code></pre>
+				</div>
+				<!-- <p class="p"><span>Explanation</span> :
+
+				</p> -->
+</div>
+<section id="code">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>Page Title</title>
+     <style>
+          *{
+               margin:0;
+               padding:0;
+          }
+.Section_top {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    position: relative;
+    background-image: url('image.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    padding:20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    text-transform: uppercase;
+}
+
+.content h1 {
+    color: white;
+    font-size:20px;
+    letter-spacing: 15px;
+}
+
+.content h1 span {
+    color: white;
+}
+
+.content a {
+    background: #85c1ee;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 8px;
+    border-radius: 20px;
+    margin: 10px;
+    color: #fff;
+}
+
+.content a:hover {
+    background: #034e88;
+}
+
+.hero-btn {
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero-btn:hover {
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+}
+     </style>
+</head>
+<body>
+     <div class="Section_top">
+       <div class="content">
+           <h1>Unlimited <span>Developer</span></h1>
+           <a href="#">Welcome</a>
+           <a class="hero-btn" href="#">Join Us</a>
+       </div>
+   </div>
+</body>
+</html>
+
+</section>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+			
+			
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 Web Development Guide</p>
+	</footer>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-html.min.js"></script>
+	<script>
+		Prism.highlightAll();
+	</script>
+	<script>
+        function copyText(element) {
+            var text = element.textContent;
+
+            navigator.clipboard.writeText(text)
+                .then(function() {
+                    alert("Text copied to clipboard!");
+                })
+                .catch(function(error) {
+                    console.error("Failed to copy text: ", error);
+                });
+        }
+    </script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /`([^`]+)`/g;
+    var styledText = text.replace(regex, '<redtag class="backtick-text">$1</redtag>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /\*\*([^*]+)\*\*/g;
+    var styledText = text.replace(regex, '<span class="highlighted-text">$1</span>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+
+</body>
+</html>

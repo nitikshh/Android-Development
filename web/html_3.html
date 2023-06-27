@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <title>Learn Web Development</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        header h1{
+             font-size:30px;
+        }
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+            color:white;
+            text-align:center;
+            text-shadow: 2px 2px 8px black;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top:10px;
+        }
+        pre{
+            padding:0px;
+
+        }
+        .container h4{
+            padding:5px;
+            width:100%;
+        }
+        .p{
+            background:#FEFCF3;
+            padding:0px;
+            font-size:13px;
+            
+        }
+        .p span{
+            background-color:#F5EBE0;
+            font-size:13px;
+        }
+        .chart {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width:100%;
+            overflow:scroll;
+            margin-bottom: 20px;
+        }
+        redtag{
+            color:green;
+            margin-top:1px;
+            font-size:13px;
+            font-family: 'Kanit', sans-serif;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100vh;
+            background-color: black;
+            transition: width 0.3s ease;
+            color:black;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: "\2630"; /* Hamburger icon */
+        }
+
+        .icon.open::before {
+            content: "\2716"; /* Close icon */
+        }
+
+        .icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color:white;
+            cursor: pointer;
+        }
+
+        #navbarList {
+            margin-top: 50px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #navbarList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #navbarList li a {
+            text-decoration: none;
+            color:white;
+        }
+        #code {
+        font-size: 12px;
+        }
+        
+@media(min-width:700px){
+     .p{
+          font-size:9px;
+     }
+     redtag{
+          font-size:10px;
+          color:red;
+     }
+     h4{
+          font-size:10px;
+     }
+     p span{
+          font-size:7px;
+     }
+}
+#icon-container {
+  position: fixed;
+  left: 88%;
+  top: 90px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#whatsapp-icon {
+  font-size: 32px;
+  cursor: pointer;
+  color:black;
+  
+}
+@media screen and (max-width: 600px) {
+  .highlighted-text {
+    font-size: 14px !important;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .highlighted-text {
+    font-size: 10px !important;
+    color: green;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .highlighted-text {
+    font-size: 10px !important;
+    color: orange;
+  }
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+</head>
+<body>
+<div class="navbar" id="navbar">
+    <!-- <div class="icon" onclick="toggleNavbar()"></div> -->
+<!-- <div id="icon-container">
+  <a href="https://wa.me/whatsappphonenumber" target="_blank" id="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<script>
+const whatsappIcon = document.getElementById('whatsapp-icon');
+const whatsappPhoneNumber = '7668703721'; // Replace with your phone number
+
+whatsappIcon.href = `https://wa.me/${whatsappPhoneNumber}`;
+     
+</script> -->
+    <ul id="navbarList">
+        <li><a href="index.html">Chapter 0 - Starting with small project</a></li>
+        <li><a href="ch_1_throey.html">Chapter 1 - The Theory</a></li>
+        <li><a href="ML_ch2.html">Chapter 2 - Machine Learning - I</a></li>
+        <li><a href="datacleaning_ch3.html">Chapter 3 - Data Cleaning</a></li>
+        <li><a href="dataVis_ch4.html">Chapter 4 - Data Visualization</a></li>
+        <li><a href="#">Chapter 6 - Conclusion</a></li>
+        <li><a href="#">Chapter 7 - Appendix A</a></li>
+        <li><a href="#">Chapter 8 - Appendix B</a></li>
+        <li><a href="#">Chapter 9 - Glossary</a></li>
+        <li><a href="#">Chapter 10 - Index</a></li>
+    </ul>
+</div>
+
+<script>
+    function toggleNavbar() {
+        var navbar = document.getElementById('navbar');
+        var icon = document.querySelector('.icon');
+        
+        if (navbar.style.width === '300px') {
+            navbar.style.width = '0';
+            icon.classList.remove('open');
+        } else {
+            navbar.style.width = '300px';
+            icon.classList.add('open');
+        }
+    }
+</script>
+
+<header>
+    <h1>Web Development</h1>
+</header>
+<main>
+    <section>
+        <!-- <h2>XML</h2> -->
+<div class="container">
+			     <h4>
+			          Width and Height in CSS
+			     </h4>
+	  	<p class="p">
+ Certainly! The `width` and `height` properties in CSS are used to specify the width and height of an element, respectively. Here's an example code that demonstrates the usage of `width` and `height` properties:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;title>Width and Height Example&lt;/title>
+  &lt;style>
+    /* CSS Styles */
+    .box {
+      width: 200px;
+      height: 150px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .full-width {
+      width: 100%;
+    }
+    
+    .half-height {
+      height: 50%;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;div class="box">Fixed Width and Height&lt;/div>
+  
+  &lt;div class="box full-width">Full Width&lt;/div>
+  
+  &lt;div class="box half-height">Half Height&lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In the above code, we have a `.box` class that represents a box-shaped element. It has a fixed `width` of 200 pixels and a fixed `height` of 150 pixels. It also has some padding, border, and background color applied to it.
+<br><br>
+The second box has an additional class of `full-width`, which sets the `width` property to `100%`, making it expand to the full width of its container.
+<br><br>
+The third box has an additional class of `half-height`, which sets the `height` property to `50%`, making it occupy half of the height of its container.
+<br><br>
+You can modify the values of `width` and `height` to suit your requirements and apply them to different elements as needed.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Box Sizing in CSS
+			     </h4>
+	  	<p class="p">
+ The `box-sizing` property in CSS allows you to control how the width and height of an element are calculated, taking into account the element's padding and border. There are two commonly used values for `box-sizing`:
+<br><br>
+1. `content-box` (default): This is the default behavior where the width and height of an element only include the content and exclude the padding and border. This means that if you specify a width of 300px for an element with 10px padding and 2px border, the total width of the element will be 324px (300px + 10px left padding + 10px right padding + 1px left border + 1px right border).
+<br><br>
+2. `border-box`: With this value, the width and height of an element include the content, padding, and border. This means that if you specify a width of 300px for an element with 10px padding and 2px border, the total width of the element will be 300px, and the padding and border will be included within that width.
+<br><br>
+Here's an example code that demonstrates the use of `box-sizing` property:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Box Sizing Example&lt;/title>
+    &lt;style>
+      /* Apply box-sizing: border-box to all elements */
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Style for the container div */
+      #container {
+        width: 300px;
+        padding: 20px;
+        border: 2px solid black;
+      }
+
+      /* Style for the inner div */
+      #inner {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid red;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div id="container">
+      &lt;div id="inner">Content&lt;/div>
+    &lt;/div>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In the above code, we have a container `&lt;div>` with an ID of `container` and an inner `&lt;div>` with an ID of `inner`. We apply the `box-sizing: border-box;` property to all elements using the universal selector (`*`) in the CSS code. This ensures that the `border-box` box-sizing model is applied to all elements on the page.
+<br><br>
+The container `&lt;div>` has a fixed width of 300px, 20px padding, and a 2px solid black border. The inner `&lt;div>` has a width of 100% (relative to the container), a fixed height of 100px, 10px padding, and a 1px solid red border.
+<br><br>
+Since we've set `box-sizing: border-box;`, the width of the container `&lt;div>` remains at 300px, including the padding and border. Similarly, the inner `&lt;div>` width is calculated based on the container's width, and the padding and border are included within that width.<br><br>
+
+This ensures that the total width of the inner `&lt;div>` remains within the boundaries of the container, taking into account the padding and border, without causing any unexpected overflow.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Font Family in css
+			     </h4>
+	  	<p class="p">
+ In CSS, the `font-family` property is used to specify the font family or typeface for text elements. You can define multiple font families in a comma-separated list, allowing the browser to apply the first available font from the list.
+<br><br>
+Here's an example code that demonstrates the use of `font-family` property:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Font Family Example&lt;/title>
+    &lt;style>
+      /* Apply font family to the body */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      /* Apply different font families to specific elements */
+      h1 {
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      p {
+        font-family: Verdana, Arial, sans-serif;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>This is a heading&lt;/h1>
+    &lt;p>This is a paragraph.&lt;/p>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In the above code, we set the `font-family` property for the `body` element to `Arial, sans-serif`. This means that the browser will attempt to use the Arial font first, and if it's not available, it will fallback to a generic sans-serif font.
+<br><br>
+For the `h1` element, we specify a different font family using `font-family: "Times New Roman", Times, serif;`. Here, we provide a specific font name `"Times New Roman"` and also include fallback options of `Times` and a generic serif font.
+<br><br>
+Similarly, for the `p` element, we define the `font-family` property as `Verdana, Arial, sans-serif;`. This means that the browser will attempt to use Verdana font first, then Arial, and if neither is available, it will fallback to a generic sans-serif font.
+<br><br>
+To add custom fonts from Google Fonts, you need to follow these steps:
+<br><br>
+1. Visit the [Google Fonts website](https://fonts.google.com/) and choose the desired font(s) you want to use.
+<br><br>
+2. Click on the "+" icon next to the font(s) you selected to add them to your collection.
+<br><br>
+3. Once you've added all the desired fonts, click on the "Family Selected" bar that appears at the bottom of the page.
+<br><br>
+4. In the popup that appears, you'll find the CSS code snippet to include in your HTML file. Copy that code.
+<br><br>
+5. Paste the CSS code inside the `&lt;head>` section of your HTML file.
+<br><br>
+6. In your CSS code, you can now reference the selected Google Font using the `font-family` property.
+<br><br>
+Here's an example that uses a Google Font:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Google Fonts Example&lt;/title>
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      /* Apply Google Font to specific elements */
+      h1 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+      }
+
+      p {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>This is a heading with a Google Font&lt;/h1>
+    &lt;p>This is a paragraph with a Google Font.&lt;/p>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+
+<p class="p">
+In the above code, we include the Google Font "Roboto" by adding the `&lt;link>` tag to the Google Fonts CSS file in the `&lt;head>` section of our HTML. This makes the font available for use in our CSS code.
+<br><br>
+We then apply the font to the `
+h1` and `p` elements using `font-family: "Roboto", sans-serif;`. The `font-weight` property is also set to control the font's weight (700 for bold, 400 for regular).
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Text Align in CSS
+			     </h4>
+	  	<p class="p">
+ In CSS, the `text-align` property is used to specify the horizontal alignment of text within an element. It controls the positioning of the text relative to the element's content box.
+<br><br>
+Here are the commonly used values for the `text-align` property:
+<br><br>
+1. `text-align: left;` - Aligns the text to the left side of the content box. <br>
+2. `text-align: center;` - Centers the text horizontally within the content box.<br>
+3. `text-align: right;` - Aligns the text to the right side of the content box.<br>
+4. `text-align: justify;` - Adjusts the spacing between words in a line to justify both the left and right edges of the content box.<br>
+5. `text-align: start;` - Aligns the text according to the browser's default language-specific direction. (For left-to-right languages, it behaves the same as `left`, and for right-to-left languages, it behaves the same as `right`).<br>
+6. `text-align: end;` - Aligns the text opposite to the browser's default language-specific direction. (For left-to-right languages, it behaves the same as `right`, and for right-to-left languages, it behaves the same as `left`).<br><br>
+
+Here's an example code that demonstrates the use of `text-align` property with different values:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Text Align Example&lt;/title>
+    &lt;style>
+      .container {
+        width: 300px;
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      /* Apply different text alignments */
+      .left-align {
+        text-align: left;
+      }
+
+      .center-align {
+        text-align: center;
+      }
+
+      .right-align {
+        text-align: right;
+      }
+
+      .justify-align {
+        text-align: justify;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="container left-align">
+      &lt;p>This text is left-aligned.&lt;/p>
+    &lt;/div>
+
+    &lt;div class="container center-align">
+      &lt;p>This text is center-aligned.&lt;/p>
+    &lt;/div>
+
+    &lt;div class="container right-align">
+      &lt;p>This text is right-aligned.&lt;/p>
+    &lt;/div>
+
+    &lt;div class="container justify-align">
+      &lt;p>
+        This text is justified. It will have extra spacing between words to
+        align both the left and right edges of the content box.
+      &lt;/p>
+    &lt;/div>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In the above code, we create a `.container` class to define a container element with a fixed width, border, and padding. We then create different classes (`.left-align`, `.center-align`, `.right-align`, and `.justify-align`) to apply different text alignments to the paragraphs within the containers.
+<br><br>
+By adding the respective alignment class to each container, we can control the text alignment within the paragraphs.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Flex Container
+			     </h4>
+	  	<p class="p">
+ In CSS, the `display: flex` property is used to create a flex container, which enables a flexible layout for its child elements. Within a flex container, you can use various properties to align and position the child elements.
+<br><br>
+Here are some commonly used properties for centering the flex container and its contents:
+<br><br>
+1. `display: flex;` - Creates a flex container.
+<br>
+2. `align-items: center;` - Aligns the flex items vertically along the cross-axis. In this case, it centers the items vertically within the flex container.
+<br>
+3. `justify-content: center;` - Aligns the flex items horizontally along the main axis. In this case, it centers the items horizontally within the flex container.
+<br><br>
+Here's an example code that demonstrates the use of `display: flex`, `align-items`, and `justify-content` properties to center the flex container and its contents:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Flexbox Center Example&lt;/title>
+    &lt;style>
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        border: 1px solid black;
+      }
+      
+      .box {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="container">
+      &lt;div class="box">&lt;/div>
+    &lt;/div>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In the above code, we create a flex container with the class `.container`. The `display: flex` property is applied to the container to enable flexbox layout. We also set `align-items: center` and `justify-content: center` to center the flex items (in this case, a single `.box` element) both vertically and horizontally within the container.
+<br><br>
+By adjusting the `height`, `width`, and other properties, you can customize the size and appearance of the flex container and its contents.
+<br><br>
+Additionally, there are other properties you can use to control the flex layout, such as:
+<br><br>
+- `flex-direction` - Specifies the direction of the flex container's main axis (row or column).<br>
+- `flex-wrap` - Determines whether flex items should wrap to a new line when there is not enough space.<br>
+- `align-self` - Overrides the `align-items` property for an individual flex item.<br>
+- `order` - Controls the order in which flex items are displayed.<br>
+- `flex-grow`, `flex-shrink`, `flex-basis` - Determines how flex items should grow, shrink, and be sized.
+<br><br>
+These properties provide further flexibility and control over the layout of the flex container and its child elements.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Shadow in CSS
+			     </h4>
+	  	<p class="p">
+ In CSS, the `box-shadow` property is used to add shadow effects to elements. It allows you to create visually appealing shadows around elements, providing depth and dimension to your design. The `box-shadow` property has the following syntax:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">box-shadow: [horizontal offset] [vertical offset] [blur radius] [spread radius] [color];</code></pre>
+				</div>
+<p class="p">
+Here's an explanation of each property:
+<br><br>
+1. `Horizontal Offset`: Specifies the horizontal distance of the shadow from the element. A positive value pushes the shadow to the right, while a negative value pushes it to the left.
+<br><br>
+2. `Vertical Offset`: Specifies the vertical distance of the shadow from the element. A positive value pushes the shadow downwards, while a negative value pushes it upwards.
+<br><br>
+3. `Blur Radius`: Determines the blur effect of the shadow. A higher value creates a more blurred and spread-out shadow, while a lower value creates a sharper shadow. A value of `0` means no blur.
+<br><br>
+4. `Spread Radius`: Controls the spread of the shadow. A positive value expands the size of the shadow, while a negative value shrinks it. A value of `0` means the shadow is the same size as the element.
+<br><br>
+5. `Color`: Specifies the color of the shadow. This can be any valid CSS color value, such as a named color, hex code, RGB value, or HSL value.<br><br>
+
+Here's an example that demonstrates the usage of the `box-shadow` property with different properties:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Box Shadow Example&lt;/title>
+    &lt;style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightgray;
+        box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+      }
+      
+      .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: lightgray;
+        box-shadow: -5px -5px 10px 0px rgba(0, 0, 0, 0.5);
+      }
+      
+      .box3 {
+        width: 200px;
+        height: 200px;
+        background-color: lightgray;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="box">&lt;/div>
+    &lt;div class="box2">&lt;/div>
+    &lt;div class="box3">&lt;/div>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In the above code, we have three `&lt;div>` elements with different box shadow effects applied. The `box-shadow` property is used to define the shadow for each element. The first `.box` has a shadow with a horizontal offset of `5px`, vertical offset of `5px`, blur radius of `10px`, and no spread radius. The second `.box2` has a shadow with negative horizontal and vertical offsets, creating an inward shadow effect. The third `.box3` has a shadow with no horizontal or vertical offsets, a blur radius of `10px`, and a spread radius of `5px`, resulting in a larger shadow around the element.
+<br><br>
+By adjusting the values of the `box-shadow` property, you can create different shadow effects to suit your design needs.
+<br><br>
+Here's an example that demonstrates the usage of the text-shadow property:
+				</p>
+				<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Text Shadow Example&lt;/title>
+    &lt;style>
+      .text {
+        font-size: 24px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      
+      .text2 {
+        font-size: 36px;
+        text-shadow: -2px -2px 4px rgba(255, 0, 0, 0.7);
+      }
+      
+      .text3 {
+        font-size: 48px;
+        text-shadow: 0px 0px 8px rgba(0, 0, 255, 0.8);
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;h1 class="text">Hello, World!&lt;/h1>
+    &lt;h1 class="text2">CSS is awesome!&lt;/h1>
+    &lt;h1 class="text3">Web development&lt;/h1>
+  &lt;/body>
+&lt;/html>
+</code></pre>
+				</div>
+</div>
+<div class="container">
+			     <h4>
+`*` symbol in CSS
+			     </h4>
+	  	<p class="p">
+ The `*` symbol in CSS is used as a universal selector, which selects all elements on the page. When used in conjunction with other selectors, it allows you to apply a set of styles to all elements.
+<br><br>
+The `*` selector is often used to apply a global CSS reset or to set default styles for all elements. It can be useful when you want to override or normalize the default styles provided by browsers.
+<br><br>
+Here's an example code that demonstrates the use of the `*` selector with a set of CSS rules:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In the above code, the `*` selector is used to target all elements on the page. The following CSS properties are applied to all elements:
+<br><br>
+1. `margin: 0;`: This sets the margin of all elements to `0`, removing any default margin.
+<br><br>
+2. `padding: 0;`: This sets the padding of all elements to `0`, removing any default padding.
+<br><br>
+3. `box-sizing: border-box;`: This sets the box-sizing property of all elements to `border-box`. This ensures that the width and height of elements include any padding and border, making it easier to work with layouts.
+<br><br>
+By using the `*` selector with these CSS rules, you can establish a consistent starting point for your styles across all elements on the page. It helps to create a more predictable layout and avoids unexpected spacing or sizing issues caused by default browser styles.
+<br><br>
+It's important to note that using the `*` selector with extensive styles can have performance implications, as it applies styles to every element. It's generally recommended to use it sparingly and only when necessary.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+<div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div>
+			
+			
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 Web Development Guide</p>
+	</footer>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-html.min.js"></script>
+	<script>
+		Prism.highlightAll();
+	</script>
+	<script>
+        function copyText(element) {
+            var text = element.textContent;
+
+            navigator.clipboard.writeText(text)
+                .then(function() {
+                    alert("Text copied to clipboard!");
+                })
+                .catch(function(error) {
+                    console.error("Failed to copy text: ", error);
+                });
+        }
+    </script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /`([^`]+)`/g;
+    var styledText = text.replace(regex, '<redtag class="backtick-text">$1</redtag>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /\*\*([^*]+)\*\*/g;
+    var styledText = text.replace(regex, '<span class="highlighted-text">$1</span>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+
+</body>
+</html>
