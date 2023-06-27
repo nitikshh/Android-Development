@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <title>Learn Web Development</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        header h1{
+             font-size:30px;
+        }
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+            color:white;
+            text-align:center;
+            text-shadow: 2px 2px 8px black;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top:10px;
+        }
+        pre{
+            padding:0px;
+
+        }
+        .container h4{
+            padding:5px;
+            width:100%;
+        }
+        .p{
+            background:#FEFCF3;
+            padding:0px;
+            font-size:13px;
+            
+        }
+        .p span{
+            background-color:#F5EBE0;
+            font-size:13px;
+        }
+        .chart {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width:100%;
+            overflow:scroll;
+            margin-bottom: 20px;
+        }
+        redtag{
+            color:green;
+            margin-top:1px;
+            font-size:13px;
+            font-family: 'Kanit', sans-serif;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100vh;
+            background-color: black;
+            transition: width 0.3s ease;
+            color:black;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: "\2630"; /* Hamburger icon */
+        }
+
+        .icon.open::before {
+            content: "\2716"; /* Close icon */
+        }
+
+        .icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color:white;
+            cursor: pointer;
+        }
+
+        #navbarList {
+            margin-top: 50px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #navbarList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #navbarList li a {
+            text-decoration: none;
+            color:white;
+        }
+        #code {
+        font-size: 12px;
+        }
+        
+@media(min-width:700px){
+     .p{
+          font-size:9px;
+     }
+     redtag{
+          font-size:10px;
+          color:red;
+     }
+     h4{
+          font-size:10px;
+     }
+     p span{
+          font-size:7px;
+     }
+}
+#icon-container {
+  position: fixed;
+  left: 88%;
+  top: 90px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#whatsapp-icon {
+  font-size: 32px;
+  cursor: pointer;
+  color:black;
+  
+}
+@media screen and (max-width: 600px) {
+  .highlighted-text {
+    font-size: 14px !important;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .highlighted-text {
+    font-size: 10px !important;
+    color: green;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .highlighted-text {
+    font-size: 10px !important;
+    color: orange;
+  }
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+</head>
+<body>
+<div class="navbar" id="navbar">
+    <!-- <div class="icon" onclick="toggleNavbar()"></div> -->
+<!-- <div id="icon-container">
+  <a href="https://wa.me/whatsappphonenumber" target="_blank" id="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<script>
+const whatsappIcon = document.getElementById('whatsapp-icon');
+const whatsappPhoneNumber = '7668703721'; // Replace with your phone number
+
+whatsappIcon.href = `https://wa.me/${whatsappPhoneNumber}`;
+     
+</script> -->
+    <ul id="navbarList">
+        <li><a href="index.html">Chapter 0 - Starting with small project</a></li>
+        <li><a href="ch_1_throey.html">Chapter 1 - The Theory</a></li>
+        <li><a href="ML_ch2.html">Chapter 2 - Machine Learning - I</a></li>
+        <li><a href="datacleaning_ch3.html">Chapter 3 - Data Cleaning</a></li>
+        <li><a href="dataVis_ch4.html">Chapter 4 - Data Visualization</a></li>
+        <li><a href="#">Chapter 6 - Conclusion</a></li>
+        <li><a href="#">Chapter 7 - Appendix A</a></li>
+        <li><a href="#">Chapter 8 - Appendix B</a></li>
+        <li><a href="#">Chapter 9 - Glossary</a></li>
+        <li><a href="#">Chapter 10 - Index</a></li>
+    </ul>
+</div>
+
+<script>
+    function toggleNavbar() {
+        var navbar = document.getElementById('navbar');
+        var icon = document.querySelector('.icon');
+        
+        if (navbar.style.width === '300px') {
+            navbar.style.width = '0';
+            icon.classList.remove('open');
+        } else {
+            navbar.style.width = '300px';
+            icon.classList.add('open');
+        }
+    }
+</script>
+
+<header>
+    <h1>Web Development</h1>
+</header>
+<main>
+    <section>
+        <!-- <h2>XML</h2> -->
+
+<div class="container">
+			     <h4>
+What is CSS
+			     </h4>
+	  	<p class="p">
+ CSS (Cascading Style Sheets) is a stylesheet language used for describing the presentation and visual styling of a document written in HTML or XML. It allows web developers to control the layout, appearance, and design of web pages.
+<br><br>
+The basic structure of CSS consists of selectors and declaration blocks:</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">selector {
+    property: value;
+    property: value;
+    /* more properties and values */
+}</code></pre>
+				</div>
+<p class="p"><span>Explanation</span>
+<br><br>
+- `Selectors`: Selectors target HTML elements on which the styles should be applied. They can be based on element names, class names, IDs, or other attributes.
+<br><br>
+- `Declaration Blocks`: A declaration block consists of one or more property-value pairs enclosed in curly braces `{}`. Each property defines a specific aspect of the element's appearance, and its value determines the style or behavior.
+<br><br>
+- `Property`: A property represents a specific characteristic or style attribute of an element, such as `color`, `font-size`, or `background-color`.
+<br><br>
+- `Value`: The value assigned to a property specifies how the element should be styled for that particular property. For example, `color: blue;` sets the text color to blue.
+<br><br>
+- `Comments`: Comments in CSS are written using `/* */` and are used to provide explanations or notes within the CSS code. They are not interpreted by the browser and are purely for human understanding.
+<br><br>
+Here's an example to illustrate the basic structure of CSS:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-css" id="code">/* CSS Stylesheet */
+
+/* Selects all &lt;h1> elements and sets the text color to red */
+h1 {
+    color: red;
+}
+
+/* Selects elements with the class "highlight" and sets the background color to yellow */
+.highlight {
+    background-color: yellow;
+}
+
+/* Selects an element with the ID "logo" and sets the width to 200 pixels */
+#logo {
+    width: 200px;
+}
+
+/* Selects all paragraphs inside a <div> with the class "content" and sets the font size to 16 pixels */
+div.content p {
+    font-size: 16px;
+}</code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> 
+
+
+
+In this example, different selectors are used to target specific HTML elements or groups of elements, and corresponding property-value pairs define their styling. CSS rules are applied in a cascading manner, where styles can be inherited, overridden, or combined to achieve the desired presentation of the web page.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Classes and IDs
+			     </h4>
+	  	<p class="p">
+ Classes and IDs are CSS selectors used to target and apply styles to specific HTML elements. They play a crucial role in styling and selecting elements based on their attributes.
+<br><br>
+Here's an example code with comments explaining the use of classes and IDs:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;style>
+    /* Styles for the class selector */
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+    
+    /* Styles for the ID selector */
+    #title {
+      font-size: 24px;
+      text-decoration: underline;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;h1 id="title">Hello, World!&lt;/h1>
+  &lt;p>This is a &lt;span class="highlight">sample&lt;/span> paragraph.&lt;/p>
+  &lt;p class="highlight">This paragraph is also highlighted.&lt;/p>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In the above code:
+<br><br>
+1. The `highlight` class selector (`.highlight`) is used to target elements with the class attribute set to "highlight". The styles defined for this selector will be applied to those elements. In this example, the text color will be red, and the font weight will be bold for elements with the `highlight` class.<br><br>
+
+2. The `title` ID selector (`#title`) is used to target the element with the ID attribute set to "title". The styles defined for this selector will be applied to that specific element. In this example, the font size will be 24 pixels, and the text will be underlined for the element with the `title` ID.<br><br>
+
+By using classes and IDs, you can selectively apply styles to specific elements, even if they belong to the same HTML tag. Classes are typically used for styling groups of elements with similar characteristics, while IDs are used to uniquely identify and style specific elements.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Change the color of text (heading)
+			     </h4>
+	  	<p class="p">
+ To change the color of `&lth1>` tags using CSS and HTML in one file, you can follow these steps:
+<br>
+1. Create a new HTML file with a `&ltstyle>` block inside the `&lthead>` section.<br>
+2. Within the `&ltstyle>` block, define the CSS rule to target the `&lth1>` tag and specify the desired color.<br>
+3. Add some content to the HTML file, including one or more `&lth1>` tags.
+<br><br>
+Here's an example of how the HTML file would look like:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt!DOCTYPE html>
+&lthtml>
+&lthead>
+    &ltstyle>
+        /* CSS Stylesheet */
+        h1 {
+            color: blue;
+        }
+    &lt/style>
+&lt/head>
+&ltbody>
+    &lth1>This is a heading&lt/h1>
+    &ltp>This is a paragraph.&lt/p>
+    &lth1>Another heading&lt/h1>
+    &lt!-- Add more HTML content as needed -->
+&lt/body>
+&lt/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In this example, the CSS rule targets the `&lth1>` tag and sets its color to blue. You can modify the color value to any valid CSS color representation, such as a color name, hexadecimal code, or RGB value.
+<br><br>
+When you open the HTML file in a web browser, the `&lth1>` tags will be displayed with the specified color, in this case, blue.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Applying css to text 
+			     </h4>
+	  	<p class="p">
+ To apply various styles such as color, font size, background color, font family, font weight, text decoration, and more to the `&lt;h1>` tag using CSS and HTML in one file, you can follow these steps:
+<br><br>
+1. Create a new HTML file with a `&lt;style>` block inside the `&lt;head>` section.<br>
+2. Within the `&lt;style>` block, define the CSS rules to target the `&lt;h1>` tag and specify the desired styles.<br>
+3. Add some content to the HTML file, including one or more `&lt;h1>` tags.
+<br><br>
+Here's an example of how the HTML file would look like:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;style>
+        /* CSS Stylesheet */
+        h1 {
+            color: blue;
+            font-size: 24px;
+            background-color: yellow;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-decoration: underline;
+            /* Add more CSS properties and values as needed */
+        }
+    &lt;/style>
+&lt;/head>
+&lt;body>
+    &lt;h1>This is a heading&lt;/h1>
+    &lt;p>This is a paragraph.&lt;/p>
+    &lt;h1>Another heading&lt;/h1>
+    &lt;!-- Add more HTML content as needed -->
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In this example, the CSS rules within the `&lt;style>` block target the `&lt;h1>` tag and apply the following styles:
+<br><br>
+- `color`: Sets the text color to blue.<br>
+- `font-size`: Specifies the font size to 24 pixels.<br>
+- `background-color`: Sets the background color to yellow.<br>
+- `font-family`: Defines the font family as Arial, followed by a fallback of sans-serif.<br>
+- `font-weight`: Sets the font weight to bold.<br>
+- `text-decoration`: Adds an underline to the text.<br><br>
+
+You can add more CSS properties and values to the `&lt;h1>` rule or create additional rules to apply different styles to other elements as needed. When you open the HTML file in a web browser, the `&lt;h1>` tags will be displayed with the specified styles.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Applying css to h and p tag
+			     </h4>
+	  	<p class="p">
+ Certainly! You can use the `&lt;div>` tag to create a container and apply CSS styles to it. Here's an example of how you can use `&lt;div>` along with `&lt;h1>` and `&lt;p>` tags, and apply CSS to them in one file:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;style>
+        /* CSS Stylesheet */
+        .container {
+            background-color: lightgray;
+            padding: 20px;
+            border: 1px solid black;
+            /* Add more CSS properties and values as needed */
+        }
+
+        h1 {
+            color: blue;
+            font-size: 24px;
+            /* Add more CSS properties and values as needed */
+        }
+
+        p {
+            color: red;
+            font-size: 16px;
+            /* Add more CSS properties and values as needed */
+        }
+    &lt;/style>
+&lt;/head>
+&lt;body>
+    &lt;div class="container">
+        &lt;h1>This is a heading&lt;/h1>
+        &lt;p>This is a paragraph.&lt;/p>
+    &lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In this example, we have a `&lt;div>` element with the class attribute set to "container". Inside the `&lt;div>`, we have an `&lt;h1>` heading tag and a `&lt;p>` paragraph tag. We then define CSS rules for the container, heading, and paragraph using the respective selectors.
+<br><br>
+The CSS rules for the `.container` class apply styles such as background color, padding, and border to the `&lt;div>` element.
+<br><br>
+The CSS rules for the `h1` selector apply styles such as text color and font size to the `&lt;h1>` heading tag.
+<br><br>
+The CSS rules for the `p` selector apply styles such as text color and font size to the `&lt;p>` paragraph tag.
+<br><br>
+You can customize the CSS properties and values according to your preference to achieve the desired styling.
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Use Css inside HTML
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;div style="background-color: blue; color: white;">
+ Element with a blue background and white text color.
+&lt;/div></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+Certainly! Here's an example of using inline CSS within an HTML element to change the background color and text color of a &lt;div>:
+				</p>
+</div>
+<div class="container">
+			     <h4>
+Border and Radius
+			     </h4>
+	  	<p class="p">
+ Sure! Here's an example that explains the concepts of `border` and `border-radius` in HTML code with comments, and applies them to a `&ltdiv>` element containing `&lth1>` and `&ltp>` tags:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt!DOCTYPE html>
+&lthtml>
+&lthead>
+    &ltstyle>
+        /* CSS Stylesheet */
+        .container {
+            background-color: lightgray;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            /* Add more CSS properties and values as needed */
+        }
+
+        h1 {
+            color: blue;
+            font-size: 24px;
+            /* Add more CSS properties and values as needed */
+        }
+
+        p {
+            color: red;
+            font-size: 16px;
+            /* Add more CSS properties and values as needed */
+        }
+    &lt/style>
+&lt/head>
+&ltbody>
+    &ltdiv class="container">
+        &lth1>This is a heading&lt/h1>
+        &ltp>This is a paragraph.&lt/p>
+    &lt/div>
+&lt/body>
+&lt/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In this example, we have added two new CSS properties to the `.container` class:
+<br><br>
+1. `border`: This property sets the border around the element. We have set it to `1px solid black` to create a black border with a thickness of 1 pixel.
+<br><br>
+2. `border-radius`: This property sets the radius of the corners of the element. We have set it to `10px` to create rounded corners with a radius of 10 pixels.
+<br><br>
+By adding these properties to the `.container` class, the `&ltdiv>` element will have a border around it with rounded corners.
+<br><br>
+Feel free to modify the CSS properties and values to achieve the desired appearance of the `&ltdiv>` element and its content.
+				</p>
+</div>
+<!-- <div class="container">
+			     <h4>
+
+			     </h4>
+	  	<p class="p">
+ 
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+				</p>
+</div> -->
+			<div class="container">
+			     <h4>
+Margin and Padding
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an explanation of `margin` and `padding` in CSS, along with various methods to use them, and an example of applying them to a `&lt;div>` element containing a paragraph and a heading:
+<br><br>
+- `margin`: The `margin` property controls the space outside the borders of an element. It creates space between elements.
+<br><br>
+  - Method 1: Setting individual margin values for each side (top, right, bottom, left):
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">.container {
+      margin-top: 10px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+      margin-left: 20px;
+    }</code></pre>
+				</div>
+    
+<p class="p">
+  - Method 2: Setting shorthand margin values in clockwise order (top, right, bottom, left):
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">.container {
+      margin: 10px 20px 10px 20px;
+    }</code></pre>
+				</div>
+   
+<p class="p">
+  - Method 3: Setting shorthand margin values for vertical (top/bottom) and horizontal (left/right) margins:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">.container {
+      margin: 10px auto;
+    }</code></pre>
+				</div>
+  
+<p class="p">
+- `padding`: The `padding` property controls the space between the content and the borders of an element. It creates space inside the element.
+<br><br>
+  - Method 1: Setting individual padding values for each side (top, right, bottom, left):
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">.container {
+      padding-top: 10px;
+      padding-right: 20px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+    }</code></pre>
+				</div>
+  
+<p class="p">
+  - Method 2: Setting shorthand padding values in clockwise order (top, right, bottom, left):
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">.container {
+      padding: 10px 20px 10px 20px;
+    }</code></pre>
+				</div>
+   
+<p class="p">
+  - Method 3: Setting shorthand padding values for vertical (top/bottom) and horizontal (left/right) paddings:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">.container {
+      padding: 10px auto;
+    }</code></pre>
+				</div>
+
+<p class="p">
+Here's an example that applies `margin` and `padding` to a `&lt;div>` element with a heading (`&lt;h1>`) and a paragraph (`&lt;p>`):
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;style>
+        .container {
+            background-color: lightgray;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        h1 {
+            color: blue;
+            font-size: 24px;
+        }
+
+        p {
+            color: red;
+            font-size: 16px;
+        }
+    &lt;/style>
+&lt;/head>
+&lt;body>
+    &lt;div class="container">
+        &lt;h1>This is a heading&lt;/h1>
+        &lt;p>This is a paragraph.&lt;/p>
+    &lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In this example, the `.container` class has `margin` set to `20px`, which adds space around the entire `&lt;div>` element, and `padding` set to `10px`, which adds space inside the `&lt;div>` element between its content and the borders.
+<br><br>
+Feel free to adjust the `margin` and `padding` values to achieve the desired spacing for your `&lt;div>` element and its content.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Project - 1
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example project code that demonstrates different styles for a `&lt;div>` container using various CSS properties including color, font size, background color, width, margin, padding, and border radius:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;style>
+        .container {
+            background-color: lightgray;
+            color: white;
+            font-size: 18px;
+            width: 300px;
+            margin-top: 20px;
+            margin-right: 40px;
+            margin-bottom: 20px;
+            margin-left: 40px;
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            border-radius: 10px;
+        }
+
+        /* Shorthand notation for margin */
+        .container-shorthand-margin {
+            background-color: lightblue;
+            color: white;
+            font-size: 18px;
+            width: 300px;
+            margin: 20px 40px;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        /* Shorthand notation for padding */
+        .container-shorthand-padding {
+            background-color: lightgreen;
+            color: white;
+            font-size: 18px;
+            width: 300px;
+            margin: 20px 40px;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        /* Center alignment using margin: auto */
+        .container-center {
+            background-color: coral;
+            color: white;
+            font-size: 18px;
+            width: 300px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+    &lt;/style>
+&lt;/head>
+&lt;body>
+    &lt;div class="container">
+        &lt;h1>Container with Individual Properties&lt;/h1>
+        &lt;p>This container has its properties set individually.&lt;/p>
+    &lt;/div>
+
+    &lt;div class="container-shorthand-margin">
+        &lt;h1>Container with Shorthand Margin&lt;/h1>
+        &lt;p>This container uses shorthand notation for margin.&lt;/p>
+    &lt;/div>
+
+    &lt;div class="container-shorthand-padding">
+        &lt;h1>Container with Shorthand Padding&lt;/h1>
+        &lt;p>This container uses shorthand notation for padding.&lt;/p>
+    &lt;/div>
+
+    &lt;div class="container-center">
+        &lt;h1>Centered Container&lt;/h1>
+        &lt;p>This container is centered horizontally using margin: auto.&lt;/p>
+    &lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In this example, we have four `&lt;div>` containers with different styles:
+<br><br>
+- The first container (`&lt;div class="container">`) demonstrates individual property assignments for color, font size, background color, width, margin, padding, and border radius.
+<br><br>
+- The second container (`&lt;div class="container-shorthand-margin">`) showcases the shorthand notation for setting the margin property.
+<br><br>
+- The third container (`&lt;div class="container-shorthand-padding">`) showcases the shorthand notation for setting the padding property.
+<br><br>
+- The fourth container (`&lt;div class="container-center">`) demonstrates the usage of `margin: auto` to center the container horizontally.
+<br><br>
+Feel free to modify the styles and properties of each container according to your preferences.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Position in CSS
+			     </h4>
+	  	<p class="p">
+ In CSS, the `position` property determines how an element is positioned within its parent container. There are several values for the `position` property, each providing different positioning behavior. Here's an explanation of the different methods to use the `position` property in HTML with code comments:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;style>
+        /* Static positioning (default) */
+        .static-position {
+            position: static;
+            /* No additional positioning properties required */
+        }
+
+        /* Relative positioning */
+        .relative-position {
+            position: relative;
+            /* Additional positioning properties */
+            top: 20px;
+            left: 50px;
+        }
+
+        /* Absolute positioning */
+        .absolute-position {
+            position: absolute;
+            /* Additional positioning properties */
+            top: 0;
+            right: 0;
+        }
+
+        /* Fixed positioning */
+        .fixed-position {
+            position: fixed;
+            /* Additional positioning properties */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Sticky positioning */
+        .sticky-position {
+            position: sticky;
+            /* Additional positioning properties */
+            top: 20px;
+        }
+    &lt;/style>
+&lt;/head>
+&lt;body>
+    &lt;h1>Positioning Examples&lt;/h1>
+
+    &lt;!-- Static Positioning -->
+    &lt;div class="static-position">
+        &lt;h2>Static Positioning&lt;/h2>
+        &lt;p>This element is positioned statically, which is the default behavior.&lt;/p>
+    &lt;/div>
+
+    &lt;!-- Relative Positioning -->
+    &lt;div class="relative-position">
+        &lt;h2>Relative Positioning&lt;/h2>
+        &lt;p>This element is positioned relative to its normal position in the document flow.&lt;/p>
+    &lt;/div>
+
+    &lt;!-- Absolute Positioning -->
+    &lt;div class="absolute-position">
+        &lt;h2>Absolute Positioning&lt;/h2>
+        &lt;p>This element is positioned relative to its nearest positioned ancestor.&lt;/p>
+    &lt;/div>
+
+    &lt;!-- Fixed Positioning -->
+    &lt;div class="fixed-position">
+        &lt;h2>Fixed Positioning&lt;/h2>
+        &lt;p>This element is positioned relative to the browser window.&lt;/p>
+    &lt;/div>
+
+    &lt;!-- Sticky Positioning -->
+    &lt;div class="sticky-position">
+        &lt;h2>Sticky Positioning&lt;/h2>
+        &lt;p>This element is positioned based on the user's scroll position.&lt;/p>
+    &lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In this example, we have five different positioning methods applied to `&lt;div>` elements:
+<br><br>
+- The `static-position` class represents the default behavior where elements are positioned statically in the normal document flow.
+<br><br>
+- The `relative-position` class demonstrates relative positioning, where elements are positioned relative to their normal position. The `top` and `left` properties are used to offset the element from its original position.
+<br><br>
+- The `absolute-position` class showcases absolute positioning, where elements are positioned relative to their nearest positioned ancestor. The `top` and `right` properties are used to specify the position of the element.
+<br><br>
+- The `fixed-position` class demonstrates fixed positioning, where elements are positioned relative to the browser window. The `top` and `left` properties, along with the `transform` property, are used to center the element vertically and horizontally.
+<br><br>
+- The `sticky-position` class showcases sticky positioning, where elements remain in the document flow until a specific scroll position is reached. The `top` property is used to specify the offset from the top of the scrolling container.
+<br><br>
+Feel free to modify the positioning values and properties to experiment with different layout arrangements.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Box Model In CSS
+			     </h4>
+	  	<p class="p">
+ The CSS Box Model is a fundamental concept that defines the layout and spacing of elements on a web page. It consists of four components: content, padding, border, and margin. Each component contributes to the overall size and positioning of an element.
+<br><br>
+Here's an example with code that demonstrates the Box Model:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;style>
+    .box {
+      width: 200px;
+      height: 100px;
+      padding: 20px;
+      border: 2px solid black;
+      margin: 10px;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;div class="box">
+    This is a box element.
+  &lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In the code above, we have a `div` element with a class of "box". Let's break down the CSS properties related to the Box Model:
+<br><br>
+1. `width` and `height`: These properties define the dimensions of the content area. In this example, the box has a width of 200 pixels and a height of 100 pixels.
+<br><br>
+2. `padding`: Padding is the space between the content and the border. It adds space inside the element. In this case, the padding is set to 20 pixels, creating extra space between the content and the border.
+<br><br>
+3. `border`: The border property sets the style, width, and color of the border around the element. In this example, we have a solid black border with a width of 2 pixels.
+<br><br>
+4. `margin`: Margin is the space outside the element. It adds space between the element and other elements on the page. In this case, the margin is set to 10 pixels, creating space around the box.
+<br><br>
+So, in total, the box's size will be calculated as follows: <br>
+- Content width: 200px + (left and right padding of 20px each) = 240px<br>
+- Content height: 100px + (top and bottom padding of 20px each) = 140px<br>
+- Total width: 240px + (left and right border of 2px each) = 244px<br>
+- Total height: 140px + (top and bottom border of 2px each) = 144px<br>
+- Total width with margin: 244px + (left and right margin of 10px each) = 264px<br>
+- Total height with margin: 144px + (top and bottom margin of 10px each) = 164px
+<br><br>
+Understanding the Box Model is crucial because it affects how elements are positioned and interact with each other on a web page. By manipulating the content, padding, border, and margin properties, you can control the spacing and layout of elements effectively.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Display in CSS
+			     </h4>
+	  	<p class="p">
+ In CSS, the `display` property is used to control the layout behavior of an element. It specifies how an element should be rendered on the page. There are several values for the `display` property that determine the box type and visibility of an element.
+<br><br>
+Here's an example with code that demonstrates the `display` property:
+
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;style>
+    .box {
+      width: 200px;
+      height: 100px;
+      border: 1px solid black;
+      margin-bottom: 10px;
+    }
+
+    .block {
+      display: block;
+      background-color: yellow;
+    }
+
+    .inline {
+      display: inline;
+      background-color: cyan;
+    }
+
+    .inline-block {
+      display: inline-block;
+      background-color: magenta;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;div class="box block">
+    Block element
+  &lt;/div>
+
+  &lt;span class="box inline">
+    Inline element
+  &lt;/span>
+
+  &lt;div class="box inline-block">
+    Inline-block element
+  &lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In the code above, we have three elements: a block element, an inline element, and an inline-block element. Let's explore the `display` property and its values:
+<br><br>
+1. `display: block;`: This value makes an element a block-level element. Block-level elements start on a new line and take up the full width available. You can set properties like width, height, margins, and paddings on block elements. In the example, the block element has a yellow background color.
+<br><br>
+2. `display: inline;`: This value makes an element an inline-level element. Inline-level elements do not start on a new line and only take up the necessary width and height to contain their content. They do not accept width, height, top/bottom margins, or paddings. In the example, the inline element has a cyan background color.
+<br><br>
+3. `display: inline-block;`: This value combines aspects of both block-level and inline elements. It allows you to set width, height, margins, and paddings like block-level elements, but it does not start on a new line like inline elements. It takes up only the necessary width and height required by the content. In the example, the inline-block element has a magenta background color.
+<br><br>
+By using the `display` property, you can control how elements are visually rendered on the page. Understanding and utilizing different display values are crucial for creating flexible and responsive layouts.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Positioning in CSS
+			     </h4>
+	  	<p class="p">
+ In CSS, positioning allows you to control the placement of elements on a web page. The `position` property is used to specify the type of positioning for an element. There are several values for the `position` property that determine how an element is positioned relative to its normal position in the document flow.
+<br><br>
+Here are the commonly used positioning values with code examples:
+<br><br>
+1. `position: static;`: This is the default positioning value. Elements with `position: static;` are positioned according to the normal document flow. The `top`, `bottom`, `left`, and `right` properties have no effect on statically positioned elements.
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;div style="position: static;">
+  This is a statically positioned element.
+&lt;/div></code></pre>
+				</div>
+				<p class="p">
+
+
+2. `position: relative;`: Elements with `position: relative;` are positioned relative to their normal position in the document flow. You can use the `top`, `bottom`, `left`, and `right` properties to offset the element from its original position.
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;div style="position: relative; top: 20px; left: 50px;">
+  This is a relatively positioned element.
+&lt;/div></code></pre>
+				</div>
+<p class="p">
+3. `position: absolute;`: Elements with `position: absolute;` are positioned relative to their closest positioned ancestor or to the initial containing block if no positioned ancestor is found. Absolute positioned elements are taken out of the normal document flow, so they don't affect the positioning of other elements. You can use the `top`, `bottom`, `left`, and `right` properties to specify the exact position of the element.</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;div style="position: relative;">
+  &lt;div style="position: absolute; top: 50px; left: 100px;">
+    This is an absolutely positioned element.
+  &lt;/div>
+&lt;/div></code></pre>
+				</div>
+<p class="p">
+4. `position: fixed;`: Elements with `position: fixed;` are positioned relative to the viewport and do not move when the page is scrolled. Fixed positioned elements are taken out of the normal document flow and are always visible in the same position. You can use the `top`, `bottom`, `left`, and `right` properties to specify the exact position of the element.</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;div style="position: fixed; top: 20px; left: 20px;">
+  This is a fixed positioned element.
+&lt;/div></code></pre>
+				</div>
+				<p class="p">
+
+5. `position: sticky;`: Elements with `position: sticky;` are positioned based on the user's scroll position. They act like `position: relative;` until a certain threshold is reached, and then they become `position: fixed;`. Sticky positioned elements are positioned relative to their closest scrolling ancestor or the viewport if no scrolling ancestor is found.</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;div style="position: sticky; top: 10px;">
+  This is a sticky positioned element.
+&lt;/div></code></pre>
+				</div>
+<p class="p">
+By using different positioning values, you can precisely control the placement of elements on your web page. Understanding positioning is crucial for creating complex layouts and implementing specific design requirements.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Colors In CSS
+			     </h4>
+	  	<p class="p">
+ Certainly! Here's an example code that demonstrates different methods of applying colors in CSS:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;style>
+    /* Method 1: Applying color using color names */
+    .color-name {
+      color: red;
+    }
+
+    /* Method 2: Applying color using hexadecimal values */
+    .hex-color {
+      color: #00ff00;
+    }
+
+    /* Method 3: Applying color using RGB values */
+    .rgb-color {
+      color: rgb(0, 0, 255);
+    }
+
+    /* Method 4: Applying color using RGBA values */
+    .rgba-color {
+      color: rgba(255, 0, 0, 0.5);
+    }
+
+    /* Method 5: Applying color using HSL values */
+    .hsl-color {
+      color: hsl(120, 100%, 50%);
+    }
+
+    /* Method 6: Applying color using HSLA values */
+    .hsla-color {
+      color: hsla(240, 100%, 50%, 0.7);
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;h1 class="color-name">Color Name&lt;/h1>
+  &lt;h1 class="hex-color">Hexadecimal Color&lt;/h1>
+  &lt;h1 class="rgb-color">RGB Color&lt;/h1>
+  &lt;h1 class="rgba-color">RGBA Color&lt;/h1>
+  &lt;h1 class="hsl-color">HSL Color&lt;/h1>
+  &lt;h1 class="hsla-color">HSLA Color&lt;/h1>
+&lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+In the above code, different CSS classes (`color-name`, `hex-color`, `rgb-color`, `rgba-color`, `hsl-color`, and `hsla-color`) are defined to apply colors using different methods:
+<br><br>
+1. `color-name`: Uses predefined color names like `red`, `green`, etc. <br>
+2. `hex-color`: Uses hexadecimal color values like `#00ff00` for green.<br>
+3. `rgb-color`: Uses RGB color values like `rgb(0, 0, 255)` for blue.<br>
+4. `rgba-color`: Uses RGBA color values like `rgba(255, 0, 0, 0.5)` for red with 50% opacity.<br>
+5. `hsl-color`: Uses HSL color values like `hsl(120, 100%, 50%)` for lime green.<br>
+6. `hsla-color`: Uses HSLA color values like `hsla(240, 100%, 50%, 0.7)` for a semi-transparent blue.<br>
+<br>
+Each heading element (`&lt;h1>`) is assigned a specific class to apply the corresponding color using the `color` property in CSS.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Transitions and Animations
+			     </h4>
+	  	<p class="p">
+ Transitions and animations are CSS properties and techniques used to add movement and visual effects to elements on a web page.
+<br><br>
+`Transitions`:
+CSS transitions allow you to specify smooth animated changes in CSS properties over a specified duration. They provide a way to smoothly transition from one state to another when a specific condition is met, such as hovering over an element or clicking a button. Transitions are defined using the `transition` property.
+
+Example code for a simple transition:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  transition: width 0.3s ease-in-out;
+}
+
+.box:hover {
+  width: 200px;
+}</code></pre>
+				</div>
+				<p class="p">
+
+In the above code, when you hover over the `.box` element, the width transitions smoothly from 100px to 200px over a duration of 0.3 seconds. The `transition` property specifies the property to transition (`width` in this case), the duration (`0.3s`), and the timing function (`ease-in-out`).
+<br><br>
+`Animations:`
+CSS animations allow you to create more complex and dynamic visual effects by defining keyframes and specifying how the element should change its style over time. Animations are defined using the `@keyframes` rule and the `animation` property.
+<br><br>
+Example code for a simple animation:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation: slide-in 1s ease-in-out;
+}</code></pre>
+				</div>
+<p class="p">
+In the above code, the `@keyframes` rule defines an animation called `slide-in` that moves the element from left to right. The `from` block specifies the initial state, and the `to` block specifies the final state. The `.box` element then applies the animation with a duration of 1 second and an easing function of `ease-in-out`.
+<br><br>
+Transitions and animations provide powerful ways to enhance the user experience on a website by adding smooth and visually appealing effects to elements. They can be used to create interactive hover effects, sliding menus, loading animations, and much more.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Pseudo-classes and pseudo-elements
+			     </h4>
+	  	<p class="p">
+ Pseudo-classes and pseudo-elements are special selectors in CSS that allow you to style elements based on various states or specific parts of the element's content. They provide additional control over styling elements beyond their default state.
+
+Pseudo-classes:
+Pseudo-classes are used to select and style elements based on specific states or conditions, such as hovering over an element, applying styles to the first or last child of an element, or selecting elements that meet certain criteria.
+
+Example code for using pseudo-classes:
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">a:hover {
+  color: red;
+}
+
+li:first-child {
+  font-weight: bold;
+}
+
+input:valid {
+  border: 2px solid green;
+}</code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+
+In the above code, `:hover` is a pseudo-class that targets the `a` element when it is being hovered over and applies a red color to it. `:first-child` selects the first `li` element within its parent and applies a bold font weight to it. `:valid` selects an `input` element that is considered valid based on its input constraints and applies a green border to it.
+
+Pseudo-elements:
+Pseudo-elements are used to style specific parts or generate content within an element. They allow you to add decorative or functional elements to your content without modifying the HTML structure.
+</>
+Example code for using pseudo-elements:
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">p::before {
+  content: ">>";
+  color: blue;
+}
+
+h1::first-letter {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+input::placeholder {
+  color: gray;
+}</code></pre>
+				</div>
+<p class="p">
+
+In the above code, `::before` is a pseudo-element that inserts content before the `p` element and styles it with a blue color. `::first-letter` selects the first letter of the `h1` element and applies styles such as increasing the font size and adding bold font weight to it. `::placeholder` selects the placeholder text within an `input` element and applies a gray color to it.
+
+Pseudo-classes and pseudo-elements provide a way to target and style specific states or parts of elements, allowing for more precise and dynamic styling. They offer flexibility in designing interactive and visually appealing user interfaces.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Link External Stylesheets
+			     </h4>
+	  	<p class="p">
+ External stylesheets in CSS allow you to separate the style definitions from your HTML documents and link them externally. This approach promotes better organization, reusability, and maintainability of your CSS code.<br><br>
+
+To link an external stylesheet to an HTML document, follow these steps:
+<br><br>
+1. Create a new CSS file with a .css extension. For example, create a file named "styles.css".
+<br><br>
+2. In the CSS file, write your CSS rules as you would normally do. For example:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">body {
+     background-color: lightgray;
+     font-family: Arial, sans-serif;
+   }
+
+   h1 {
+     color: blue;
+   }
+
+   .highlight {
+     background-color: yellow;
+   }</code></pre>
+				</div>
+				<p class="p">
+
+3. Save the CSS file.
+<br><br>
+4. In your HTML document, add a link element in the head section to reference the external stylesheet. Use the `href` attribute to specify the path to the CSS file. For example:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code"><!-- index.html -->
+&lt;!DOCTYPE html>
+   &lt;html>
+     &lt;head>
+       &lt;link rel="stylesheet" href="styles.css">
+     &lt;/head>
+     &lt;body>
+       &lt;h1>Welcome to My Website&lt;/h1>
+       &lt;p class="highlight">This paragraph has a yellow background.&lt;/p>
+     &lt;/body>
+   &lt;/html></code></pre>
+				</div>
+	<p class="p">
+   In the above code, the `<link>` element is placed inside the `<head>` section. The `href` attribute specifies the path to the "styles.css" file. This tells the browser to fetch and apply the styles from the external stylesheet.
+<br><br>
+By using external stylesheets, you can now apply the defined styles to multiple HTML documents simply by linking to the same CSS file. This approach keeps your HTML files clean and separates the presentation layer (CSS) from the structure and content (HTML).
+<br><br>
+Additionally, you can create multiple CSS files and link them to different HTML documents based on your project's needs. This allows you to organize your styles into smaller, more manageable files, making it easier to maintain and update your stylesheets.
+<br><br>
+Remember to ensure that the paths to your CSS file(s) are correct relative to your HTML file. You can place the CSS file in the same directory as your HTML file or specify the correct path if it is in a different location.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Using Body In CSS
+			     </h4>
+	  	<p class="p">
+ To apply CSS styles to the `&lt;body>` element in HTML, you can use inline styles or an external stylesheet. Here's an example code for both approaches:
+<br><br>
+1. Inline Styles:
+Inline styles are applied directly to the HTML element using the `style` attribute.
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>CSS in Body - Inline Styles&lt;/title>
+  &lt;/head>
+  &lt;body style="background-color: lightblue; color: white; font-family: Arial, sans-serif;">
+    &lt;h1>Welcome to My Website&lt;/h1>
+    &lt;p>This is a paragraph with inline styles.&lt;/p>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p">
+
+
+
+In the above code, the `style` attribute is added to the `&lt;body>` element, and the CSS properties and values are defined within double quotes.<br><br>
+
+2. External Stylesheet:
+An external stylesheet allows you to define CSS rules in a separate file and link it to the HTML document using the `&lt;link>` element.
+<br><br>
+Create a CSS file (e.g., `styles.css`) with the following content:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">body {
+  background-color: lightblue;
+  color: white;
+  font-family: Arial, sans-serif;
+}</code></pre>
+				</div>
+	<p class="p">
+Then, link the external stylesheet in your HTML document:
+</p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>CSS in Body - External Stylesheet&lt;/title>
+    &lt;link rel="stylesheet" href="styles.css">
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Welcome to My Website&lt;/h1>
+    &lt;p>This is a paragraph with styles from an external stylesheet.&lt;/p>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+	<p class="p">
+In this code, the `&lt;link>` element is placed inside the `&lt;head>` section to reference the external stylesheet (`styles.css`). The CSS rules defined in the external stylesheet will be applied to the `&lt;body>` element.
+<br><br>
+Both approaches will result in applying the specified styles to the `&lt;body>` element. Choose the one that best suits your needs and maintainability of your code.
+				</p>
+</div>
+			<div class="container">
+			     <h4>
+Flex Box
+			     </h4>
+	  	<p class="p">
+ Flexbox is a CSS layout module that provides a flexible way to align and distribute space among items in a container. It allows you to create responsive and flexible layouts with ease. Here's an example code demonstrating the use of Flexbox:
+
+     </p>
+<div class="chart" id="chart1">
+				     <pre onclick="copyText(this)"><code class="language-html" id="code">&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Flexbox Example&lt;/title>
+    &lt;style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+      }
+      
+      .box {
+        background-color: lightblue;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="container">
+      &lt;div class="box">&lt;/div>
+      &lt;div class="box">&lt;/div>
+      &lt;div class="box">&lt;/div>
+    &lt;/div>
+  &lt;/body>
+&lt;/html></code></pre>
+				</div>
+				<p class="p"><span>Explanation</span> :
+
+In the above code, we have a container `&lt;div>` with the class name "container" that serves as the flex container. Inside the container, we have three child `&lt;div>` elements with the class name "box" that represent flex items.
+<br><br>
+The CSS properties used in this example are as follows:
+<br><br>
+- `display: flex;`: This property is applied to the container, making it a flex container and enabling the use of flexbox properties.<br>
+- `justify-content: center;`: This property aligns the flex items along the horizontal axis (main axis) and centers them horizontally within the container.<br>
+- `align-items: center;`: This property aligns the flex items along the vertical axis (cross axis) and centers them vertically within the container.<br>
+- `height: 300px;`: This sets the height of the container to 300 pixels.<br>
+- `.box`: This class defines the common styles for the flex items (boxes) such as background color, width, height, and margin.
+<br><br>
+The flexbox layout will automatically adjust the spacing and alignment of the flex items based on the container's size and the defined flexbox properties.
+				</p>
+</div>
+			
+			
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 Web Development Guide</p>
+	</footer>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-html.min.js"></script>
+	<script>
+		Prism.highlightAll();
+	</script>
+	<script>
+        function copyText(element) {
+            var text = element.textContent;
+
+            navigator.clipboard.writeText(text)
+                .then(function() {
+                    alert("Text copied to clipboard!");
+                })
+                .catch(function(error) {
+                    console.error("Failed to copy text: ", error);
+                });
+        }
+    </script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /`([^`]+)`/g;
+    var styledText = text.replace(regex, '<redtag class="backtick-text">$1</redtag>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var paragraphs = document.querySelectorAll('.p');
+  paragraphs.forEach(function(paragraph) {
+    var text = paragraph.innerHTML;
+    var regex = /\*\*([^*]+)\*\*/g;
+    var styledText = text.replace(regex, '<span class="highlighted-text">$1</span>');
+    paragraph.innerHTML = styledText;
+  });
+});
+</script>
+
+</body>
+</html>
